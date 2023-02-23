@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Player/Races/RaceStats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+race_name = "Human"
+max_health = 7
+max_mana = 5
+max_stamina = 8
+move_speed = 100
+roll_speed = 160
+cast_speed = 2
+knockback_amt = 120
+health_reg = 0.3
+mana_reg = 0.3
+stamina_reg = 0.3

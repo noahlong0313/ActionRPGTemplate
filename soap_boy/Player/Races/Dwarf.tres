@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Player/Races/RaceStats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+race_name = "Dwarf"
+max_health = 9
+max_mana = 3
+max_stamina = 10
+move_speed = 75
+roll_speed = 130
+cast_speed = 6
+knockback_amt = 100
+health_reg = 0.2
+mana_reg = 0.1
+stamina_reg = 0.4

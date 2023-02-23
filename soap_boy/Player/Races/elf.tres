@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Player/Races/RaceStats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+race_name = "Elf"
+max_health = 6
+max_mana = 10
+max_stamina = 15
+move_speed = 120
+roll_speed = 200
+cast_speed = 2
+knockback_amt = 140
+health_reg = 0.2
+mana_reg = 0.4
+stamina_reg = 0.1
