@@ -17,8 +17,8 @@
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Fonts/PixelFont.tres" type="DynamicFont" id=16]
 [ext_resource path="res://UI/Menus/PauseMenu.tscn" type="PackedScene" id=17]
-[ext_resource path="res://NPC/NPC.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Enemies/Enemy Resources/bat.tres" type="Resource" id=19]
+[ext_resource path="res://DayNightCycle.gd" type="Script" id=20]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -541,9 +541,6 @@ remote_path = NodePath("../../../Camera2D")
 [node name="merchant" parent="YSort/NPC" instance=ExtResource( 8 )]
 position = Vector2( 24, 408 )
 
-[node name="NPC" parent="YSort/NPC" instance=ExtResource( 18 )]
-position = Vector2( 180, 478 )
-
 [node name="Bushes" type="YSort" parent="YSort"]
 
 [node name="Bush" parent="YSort/Bushes" instance=ExtResource( 1 )]
@@ -959,6 +956,11 @@ margin_bottom = 7.0
 color = Color( 0.321569, 0.635294, 0.243137, 1 )
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 17 )]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color( 0.0352941, 0.113725, 0.227451, 1 )
+script = ExtResource( 20 )
 
 [connection signal="player_level_up" from="YSort/Player" to="CanvasLayer/LevelPopup" method="_on_Player_player_level_up"]
 [connection signal="player_stats_changed" from="YSort/Player" to="CanvasLayer/XP" method="_on_Player_player_stats_changed"]
