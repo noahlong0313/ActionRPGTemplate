@@ -4,7 +4,7 @@ extends KinematicBody2D
 export (Resource) var stats
 
 const knockbackAmount = 120
-const BatDeathEffect = preload("res://Effects/BatDeathEffect.tscn")
+var SimpleEnemyDeathEffect = preload("res://Effects/DeathEffects/SimpleEnemyDeathEffect.tscn")
 
 export var MAX_SPEED = 50
 export var ACCELERATION = 300
@@ -72,9 +72,8 @@ func _on_Hurtbox_area_entered(area):
 
 func death():
 	queue_free()
-	#Add XP
 	player.add_xp(gained_xp)
 	# Death Effect
-	var batDeathEffect = BatDeathEffect.instance()
-	get_parent().add_child(batDeathEffect)
-	batDeathEffect.global_position = global_position
+	var simpleEnemydeatheffect = SimpleEnemyDeathEffect.instance()
+	get_parent().add_child(simpleEnemydeatheffect)
+	simpleEnemydeatheffect.global_position = global_position

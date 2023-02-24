@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Effects/Effect.gd" type="Script" id=1]
-[ext_resource path="res://Effects/EnemyDeathEffect.png" type="Texture" id=2]
+[ext_resource path="res://Effects/DeathEffects/Bat_DeathEffect.png" type="Texture" id=2]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
@@ -51,7 +51,8 @@ animations = [ {
 "speed": 15.0
 } ]
 
-[node name="BatDeathEffect" type="AnimatedSprite"]
+[node name="SimpleEnemyDeathEffect" type="AnimatedSprite"]
 frames = SubResource( 1 )
-offset = Vector2( 0, -8 )
+frame = 7
+playing = true
 script = ExtResource( 1 )

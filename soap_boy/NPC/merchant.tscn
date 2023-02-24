@@ -10,8 +10,7 @@ extents = Vector2( 12.5, 5.5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -13 )
 frames = ExtResource( 1 )
-animation = "opposum_merchant"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

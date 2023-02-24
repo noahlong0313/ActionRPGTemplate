@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/merchant.png-fefb1b05cc39209518fcf088b5595b1e.stex"
+path="res://.import/Bat_DeathEffect.png-a23357a54ad4dc4254548543e3630c79.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPC/merchant.png"
-dest_files=[ "res://.import/merchant.png-fefb1b05cc39209518fcf088b5595b1e.stex" ]
+source_file="res://Effects/DeathEffects/Bat_DeathEffect.png"
+dest_files=[ "res://.import/Bat_DeathEffect.png-a23357a54ad4dc4254548543e3630c79.stex" ]
 
 [params]
 
