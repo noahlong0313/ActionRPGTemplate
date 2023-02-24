@@ -171,7 +171,6 @@ func move():
 ## Health
 func _on_Hurtbox_area_entered(area):
 	knockback = area.global_position.direction_to(global_position) * knockbackAmount
-	print(knockback)
 	self.health -= 1
 	if health <= 0:
 		queue_free()

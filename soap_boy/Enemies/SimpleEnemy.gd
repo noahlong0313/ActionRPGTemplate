@@ -1,10 +1,13 @@
 extends KinematicBody2D
 
+#Get Resource from race for stats
+export (Resource) var stats
+
 const knockbackAmount = 120
 const BatDeathEffect = preload("res://Effects/BatDeathEffect.tscn")
 
-export var ACCELERATION = 300
 export var MAX_SPEED = 50
+export var ACCELERATION = 300
 export var FRICTION = 200
 
 enum {
@@ -13,17 +16,25 @@ enum {
 	CHASE
 }
 
+#Stats Variables
+var health
+var gained_xp
+var speed
+
 var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
 var player
 # Default State
 var state = CHASE
 
-onready var sprite = $"BatSprite(Animated)"
-onready var stats = $Stats
+onready var sprite = $AnimatedSprite
 onready var playerDetectionZone = $PlayerDetectionZone
 
 func _ready():
+	health = stats.health
+	gained_xp = stats.gained_xp
+	sprite.frames = stats.sprite
+	
 	player = get_tree().root.get_node("/root/OverWorld/YSort/Player")
 
 func _physics_process(delta):
@@ -54,13 +65,15 @@ func seek_player():
 		state = CHASE
 
 func _on_Hurtbox_area_entered(area):
-	stats.health -= area.damage
 	knockback = area.knockback_vector * knockbackAmount
+	self.health -= 1
+	if health <= 0:
+		death()
 
-func _on_Stats_no_health():
+func death():
 	queue_free()
 	#Add XP
-	player.add_xp(75)
+	player.add_xp(gained_xp)
 	# Death Effect
 	var batDeathEffect = BatDeathEffect.instance()
 	get_parent().add_child(batDeathEffect)

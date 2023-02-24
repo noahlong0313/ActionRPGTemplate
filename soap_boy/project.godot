@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "RaceStats",
 "language": "GDScript",
 "path": "res://Player/Races/RaceStats.gd"
+}, {
+"base": "Resource",
+"class": "SEResource",
+"language": "GDScript",
+"path": "res://Enemies/SimpleEnemyResource.gd"
 } ]
 _global_script_class_icons={
-"RaceStats": ""
+"RaceStats": "",
+"SEResource": ""
 }
 
 [application]
@@ -23,7 +29,7 @@ _global_script_class_icons={
 config/name="A-RPG Template"
 config/description="Project with template systems I created for making Action RPGs"
 run/main_scene="res://UI/Menus/MainMenu.tscn"
-config/icon="res://icon.png"
+config/icon="res://icon2.png"
 
 [display]
 
