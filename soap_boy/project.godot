@@ -31,6 +31,10 @@ config/description="Project with template systems I created for making Action RP
 run/main_scene="res://UI/Menus/MainMenu.tscn"
 config/icon="res://icon2.png"
 
+[autoload]
+
+DayNightModule="*res://World/DayNightModule.tscn"
+
 [display]
 
 window/size/width=320

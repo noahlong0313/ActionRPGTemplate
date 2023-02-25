@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Overlap Boxes/Hurtbox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/Races/elf.tres" type="Resource" id=6]
 [ext_resource path="res://Shadows/light.png" type="Texture" id=7]
+[ext_resource path="res://Shadows/EntityLight.gd" type="Script" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.0
@@ -722,6 +723,7 @@ shape = SubResource( 58 )
 texture = ExtResource( 7 )
 texture_scale = 0.6
 energy = 0.5
+script = ExtResource( 8 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 
