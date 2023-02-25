@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Player/SwordHitbox.gd" type="Script" id=4]
 [ext_resource path="res://Overlap Boxes/Hurtbox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/Races/elf.tres" type="Resource" id=6]
+[ext_resource path="res://Shadows/light.png" type="Texture" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.0
@@ -716,6 +717,11 @@ collision_layer = 4
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, -7 )
 shape = SubResource( 58 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 7 )
+texture_scale = 0.6
+energy = 0.5
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 

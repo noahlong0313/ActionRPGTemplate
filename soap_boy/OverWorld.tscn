@@ -958,7 +958,6 @@ color = Color( 0.321569, 0.635294, 0.243137, 1 )
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 17 )]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0.0352941, 0.113725, 0.227451, 1 )
 script = ExtResource( 20 )
 
