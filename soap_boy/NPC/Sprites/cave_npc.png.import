@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cave_npc.png-42aea7e64fe8b48ae042dd5136e522c1.stex"
+path="res://.import/cave_npc.png-ce010a1b4444704bdabfadd0dc2fc722.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPC/SpriteSheets/cave_npc.png"
-dest_files=[ "res://.import/cave_npc.png-42aea7e64fe8b48ae042dd5136e522c1.stex" ]
+source_file="res://NPC/Sprites/cave_npc.png"
+dest_files=[ "res://.import/cave_npc.png-ce010a1b4444704bdabfadd0dc2fc722.stex" ]
 
 [params]
 

@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-#Get Resource from race for stats
 export (Resource) var stats
 
 const knockbackAmount = 120

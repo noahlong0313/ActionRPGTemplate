@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/merchant.png-3e3e25164e10053a72296a0f7a387f97.stex"
+path="res://.import/merchant.png-9886415f37c5df613c8e6edf04db46bc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPC/SpriteSheets/merchant.png"
-dest_files=[ "res://.import/merchant.png-3e3e25164e10053a72296a0f7a387f97.stex" ]
+source_file="res://NPC/Sprites/merchant.png"
+dest_files=[ "res://.import/merchant.png-9886415f37c5df613c8e6edf04db46bc.stex" ]
 
 [params]
 

@@ -1,0 +1,126 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 5
+syntax_version = 2
+raw_text = "~ start
+
+Moonpie: Hello! I'm Moonpie.
+Moonpie: I sell all sorts of things and hold a wealth of knowledge.
+Moonpie: Wanna check out my wares or are you just here to chat?
+- Wares
+	Moonpie: I'm currently fresh out of stuff! Check back again soon.
+- Chat
+	Moonpie: I'm not in the mood for chatting, come back later.
+- Start again => start
+- End the conversation 
+	Moonpie: Alright, don't wanna chat? That's fine. I'm not mad or anything.
+=> END"
+errors = [  ]
+titles = {
+"start": "2"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "start",
+"type": "title"
+},
+"10": {
+"next_id": "11",
+"next_id_after": "12",
+"replacements": [  ],
+"text": "End the conversation",
+"translation_key": "End the conversation",
+"type": "response"
+},
+"11": {
+"character": "Moonpie",
+"character_replacements": [  ],
+"next_id": "12",
+"parent_id": "10",
+"replacements": [  ],
+"text": "Alright, don't wanna chat? That's fine. I'm not mad or anything.",
+"translation_key": "Alright, don't wanna chat? That's fine. I'm not mad or anything.",
+"type": "dialogue"
+},
+"12": {
+"next_id": "end",
+"type": "goto"
+},
+"2": {
+"character": "Moonpie",
+"character_replacements": [  ],
+"next_id": "3",
+"replacements": [  ],
+"text": "Hello! I'm Moonpie.",
+"translation_key": "Hello! I'm Moonpie.",
+"type": "dialogue"
+},
+"3": {
+"character": "Moonpie",
+"character_replacements": [  ],
+"next_id": "4",
+"replacements": [  ],
+"text": "I sell all sorts of things and hold a wealth of knowledge.",
+"translation_key": "I sell all sorts of things and hold a wealth of knowledge.",
+"type": "dialogue"
+},
+"4": {
+"character": "Moonpie",
+"character_replacements": [  ],
+"next_id": "5",
+"replacements": [  ],
+"text": "Wanna check out my wares or are you just here to chat?",
+"translation_key": "Wanna check out my wares or are you just here to chat?",
+"type": "dialogue"
+},
+"5": {
+"next_id": "6",
+"next_id_after": "12",
+"replacements": [  ],
+"responses": PoolStringArray( "5", "7", "9", "10" ),
+"text": "Wares",
+"translation_key": "Wares",
+"type": "response"
+},
+"6": {
+"character": "Moonpie",
+"character_replacements": [  ],
+"next_id": "12",
+"parent_id": "5",
+"replacements": [  ],
+"text": "I'm currently fresh out of stuff! Check back again soon.",
+"translation_key": "I'm currently fresh out of stuff! Check back again soon.",
+"type": "dialogue"
+},
+"7": {
+"next_id": "8",
+"next_id_after": "12",
+"replacements": [  ],
+"text": "Chat",
+"translation_key": "Chat",
+"type": "response"
+},
+"8": {
+"character": "Moonpie",
+"character_replacements": [  ],
+"next_id": "12",
+"parent_id": "7",
+"replacements": [  ],
+"text": "I'm not in the mood for chatting, come back later.",
+"translation_key": "I'm not in the mood for chatting, come back later.",
+"type": "dialogue"
+},
+"9": {
+"next_id": "2",
+"next_id_after": "12",
+"replacements": [  ],
+"text": "Start again",
+"translation_key": "Start again",
+"type": "response"
+}
+}
