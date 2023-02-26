@@ -9,8 +9,6 @@ func _ready():
 
 func _on_daynight_lights_on():
 	visible = true
-	print("light on")
 
 func _on_daynight_lights_off():
 	visible = false
-	print("light off")

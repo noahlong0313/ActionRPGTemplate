@@ -5,7 +5,7 @@ const DAY_COLOR = Color("#ffffff")
 const EVENING_COLOR = Color("#bf6b5a")
 
 const day_length = 24.0
-const day_length_in_seconds = 120
+const day_length_in_seconds = 480
 const sun_rise = 6.0
 const sun_set = 18.0
 var time = 0.0
@@ -22,7 +22,7 @@ func _process(delta):
 	var value = (sin((time / day_length) * (2 * PI)) + 1.0) / 2.0;
 	self.color = get_source_colour(value).linear_interpolate(get_target_colour(value), value)
 	get_path()
-	if time >= 13.0 && !lights_on_triggered:
+	if time >= 14.0 && !lights_on_triggered:
 		emit_signal("lights_on")
 		lights_on_triggered = true
 	if time >= 2.0 && !lights_off_triggered:
@@ -43,7 +43,6 @@ func get_target_colour(value):
 #24hr Functions
 func get_current_time_24():
 	return fmod(time, day_length)
-	emit_signal("time_changed")
 
 func sleep():
 	time = (floor(time / day_length) * day_length) + day_length + sun_rise #Sleep until 6 in the morning next day
