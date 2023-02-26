@@ -2,6 +2,9 @@ extends ColorRect
 
 var daynight = DayNightModule
 
+func _ready():
+	$Time.text = str("DAWN")
+
 func _process(delta):
 	if daynight.time >= 2:
 		$Time.text = str("DAY")

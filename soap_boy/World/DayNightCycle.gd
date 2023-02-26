@@ -5,7 +5,7 @@ const DAY_COLOR = Color("#ffffff")
 const EVENING_COLOR = Color("#bf6b5a")
 
 const day_length = 24.0
-const day_length_in_seconds = 480
+const day_length_in_seconds = 10
 const sun_rise = 6.0
 const sun_set = 18.0
 var time = 0.0
