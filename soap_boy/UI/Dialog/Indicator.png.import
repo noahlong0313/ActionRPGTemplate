@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/merchant.png-9886415f37c5df613c8e6edf04db46bc.stex"
+path="res://.import/Indicator.png-ae370e9ae26c36d6e9a960c2374c153f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPC/Sprites/merchant.png"
-dest_files=[ "res://.import/merchant.png-9886415f37c5df613c8e6edf04db46bc.stex" ]
+source_file="res://UI/Dialog/Indicator.png"
+dest_files=[ "res://.import/Indicator.png-ae370e9ae26c36d6e9a960c2374c153f.stex" ]
 
 [params]
 
