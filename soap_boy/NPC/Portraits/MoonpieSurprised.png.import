@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Moonpienervous.png-07a901be28555cc5c9eb5b3e8d7c439b.stex"
+path="res://.import/MoonpieSurprised.png-25f4b4979e5e5667d84b3ea6c15f78c7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPC/Portraits/Moonpie/Moonpienervous.png"
-dest_files=[ "res://.import/Moonpienervous.png-07a901be28555cc5c9eb5b3e8d7c439b.stex" ]
+source_file="res://NPC/Portraits/MoonpieSurprised.png"
+dest_files=[ "res://.import/MoonpieSurprised.png-25f4b4979e5e5667d84b3ea6c15f78c7.stex" ]
 
 [params]
 

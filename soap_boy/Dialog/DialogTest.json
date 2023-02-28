@@ -1,8 +1,8 @@
 [
-  {"Name":"Moonpie", "Emotion":"happy", "Text":"Hello, I'm Moonpie!"},
-  {"Name":"Moonpie", "Emotion":"sad", "Text":"How are you doing?"},
-  {"Name":"Moonpie", "Emotion":"surprised", "Text":"Oh, me?"},
-  {"Name":"Moonpie", "Emotion":"nervous", "Text":"I'm chill..."},
-  {"Name":"Moonpie", "Emotion":"angry", "Text":"WHY YOU ASKIN' SO MANY QUESTIONS?"},
-  {"Name":"Moonpie", "Emotion":"angry", "Text":"Sorry, I'm tax evading currently. It's got me on edge."}
+	{"Name":"Moonpie", "Emotion":"Happy", "Text":"Hello, I'm Moonpie!"},
+	{"Name":"Moonpie", "Emotion":"Happy", "Text":"How are you doing?"},
+	{"Name":"Moonpie", "Emotion":"Surprised", "Text":"Oh, me?"},
+	{"Name":"Moonpie", "Emotion":"Nervous", "Text":"I'm chill..."},
+	{"Name":"Moonpie", "Emotion":"Angry", "Text":"WHY YOU ASKIN' SO MANY QUESTIONS?"},
+	{"Name":"Moonpie", "Emotion":"Sad", "Text":"Sorry, I'm tax evading currently. It's got me on edge."}
 ]

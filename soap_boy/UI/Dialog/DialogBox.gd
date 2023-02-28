@@ -13,6 +13,7 @@ func _ready():
 	dialog = getDialog()
 	assert(dialog, "Dialog not found")
 	nextPhrase()
+	DayNightModule.visible = false
 
 func _process(_delta):
 	$Indicator.visible = finished
@@ -49,7 +50,7 @@ func nextPhrase() -> void:
 	$Text.visible_characters = 0
 	
 	var f = File.new()
-	var img = dialog[phraseNum]["Name"] + dialog[phraseNum]["Emotion"] + ".png"
+	var img = "res://NPC/Portraits/" + dialog[phraseNum]["Name"] + dialog[phraseNum]["Emotion"] + ".png"
 	if f.file_exists(img):
 		$Portrait.texture = load(img)
 	else: $Portrait.texture = null
