@@ -12,7 +12,7 @@ signal dialog_ended
 
 func _process(_delta):
 	$Indicator.visible = finished
-	if Input.is_action_just_pressed("select_1"):
+	if Input.is_action_just_pressed("ui_accept"):
 		if finished:
 			nextPhrase()
 		else:

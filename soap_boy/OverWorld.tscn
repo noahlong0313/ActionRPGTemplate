@@ -17,7 +17,7 @@
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Fonts/PixelFont.tres" type="DynamicFont" id=16]
 [ext_resource path="res://UI/Menus/PauseMenu.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Clock.gd" type="Script" id=18]
+[ext_resource path="res://UI/Clock.gd" type="Script" id=18]
 [ext_resource path="res://Enemies/Enemy Resources/bat.tres" type="Resource" id=19]
 [ext_resource path="res://UI/Dialog/DialogBox.tscn" type="PackedScene" id=20]
 [ext_resource path="res://NPC/NPC_Resources/Moonpie.tres" type="Resource" id=21]
@@ -1088,11 +1088,11 @@ margin_bottom = 13.0
 text = "00:00"
 align = 1
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 17 )]
-
 [node name="DialogBox" parent="CanvasLayer" instance=ExtResource( 20 )]
 unique_name_in_owner = true
 visible = false
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 17 )]
 
 [connection signal="player_level_up" from="YSort/Player" to="CanvasLayer/LevelPopup" method="_on_Player_player_level_up"]
 [connection signal="player_stats_changed" from="YSort/Player" to="CanvasLayer/XP" method="_on_Player_player_stats_changed"]
