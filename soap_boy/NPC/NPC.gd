@@ -9,12 +9,18 @@ var state = IDLE
 var can_interact = false
 var player
 
+#Get Dialogue .json from Resource
+export (Resource) var jsonRes
+
 onready var sprite = $AnimatedSprite
 onready var indicator = $InteractIndicator
 onready var dialog = $"%DialogBox"
 
+var jsonPath
+
 func _ready():
 	player = get_tree().root.get_node("/root/OverWorld/YSort/Player")
+	jsonPath = jsonRes.json
 
 func _process(delta):
 	match state:
@@ -38,7 +44,7 @@ func _input(event):
 
 func DialogueBegin():
 	dialog.visible = true
-	dialog.dialogPath = "res://Dialog/DialogTest.json"
+	dialog.dialogPath = jsonPath
 	can_interact = false
 	dialog.startDialog()
 	player.state = player.IDLE
