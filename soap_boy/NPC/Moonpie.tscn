@@ -98,14 +98,14 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -50 ) ]
 }
 
-[node name="Merchant" type="KinematicBody2D"]
+[node name="Moonipie" type="KinematicBody2D"]
 collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -13 )
 frames = SubResource( 27 )
-frame = 3
+frame = 8
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

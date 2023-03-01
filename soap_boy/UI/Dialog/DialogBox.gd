@@ -8,20 +8,21 @@ var dialog
 var phraseNum = 0
 var finished = false
 
-func _ready():
-	$Timer.wait_time = textSpeed
-	dialog = getDialog()
-	assert(dialog, "Dialog not found")
-	nextPhrase()
-	DayNightModule.visible = false
+signal dialog_ended
 
 func _process(_delta):
 	$Indicator.visible = finished
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("select_1"):
 		if finished:
 			nextPhrase()
 		else:
 			$Text.visible_characters = len($Text.text)
+
+func startDialog():
+	$Timer.wait_time = textSpeed
+	dialog = getDialog()
+	assert(dialog, "Dialog not found")
+	nextPhrase()
 
 func getDialog() -> Array:
 	var f = File.new()
@@ -39,7 +40,7 @@ func getDialog() -> Array:
 
 func nextPhrase() -> void:
 	if phraseNum >= len(dialog):
-		queue_free()
+		emit_signal ("dialog_ended")
 		return
 	
 	finished = false
@@ -65,3 +66,6 @@ func nextPhrase() -> void:
 	finished = true
 	phraseNum += 1
 	return
+
+func _on_DialogBox_dialog_ended():
+	phraseNum = 0

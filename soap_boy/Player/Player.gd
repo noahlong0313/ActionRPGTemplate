@@ -18,7 +18,8 @@ enum {
 	MOVE,
 	ROLL,
 	ATTACK,
-	MAGIC
+	MAGIC,
+	IDLE
 }
 #Movement Variables
 var state = MOVE
@@ -85,6 +86,9 @@ func _physics_process(delta):
 		
 		MAGIC:
 			magic_state(delta)
+		
+		IDLE:
+			pass
 
 func _process(delta):
 	#Mana Regeneration

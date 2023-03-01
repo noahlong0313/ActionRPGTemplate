@@ -1100,3 +1100,4 @@ visible = false
 [connection signal="pressed" from="CanvasLayer/LevelPopup/LevelUpContainer/HealthButton" to="CanvasLayer/LevelPopup" method="_on_HealthButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/LevelPopup/LevelUpContainer/ManaButton" to="CanvasLayer/LevelPopup" method="_on_ManaButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/LevelPopup/LevelUpContainer/StaminaButton" to="CanvasLayer/LevelPopup" method="_on_StaminaButton_pressed"]
+[connection signal="dialog_ended" from="CanvasLayer/DialogBox" to="YSort/NPC/Moonpie" method="_on_DialogBox_dialog_ended"]

@@ -80,3 +80,5 @@ position = Vector2( 28, -32 )
 texture = ExtResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
+
+[connection signal="dialog_ended" from="." to="." method="_on_DialogBox_dialog_ended"]
