@@ -3,7 +3,7 @@ extends ColorRect
 var is_inventory_open = false
 var inventory = preload("res://UI/Inventory/Inventory.tres")
 
-func ready():
+func _ready():
 	$NameLabel.text = str(GameState.player_name)
 
 func _unhandled_input(event):

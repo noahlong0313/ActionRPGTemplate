@@ -19,9 +19,9 @@ margin_bottom = 162.0
 texture = ExtResource( 3 )
 
 [node name="NameLabel" type="Label" parent="."]
-margin_left = 59.0
+margin_left = 46.0
 margin_top = 142.0
-margin_right = 99.0
+margin_right = 112.0
 margin_bottom = 150.0
 custom_colors/font_color = Color( 0.831373, 0.607843, 0.556863, 1 )
 text = "Name"
