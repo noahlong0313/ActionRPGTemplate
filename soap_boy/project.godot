@@ -58,6 +58,7 @@ config/icon="res://icon2.png"
 [autoload]
 
 DayNightModule="*res://World/DayNightModule.tscn"
+GameState="*res://GameState.tscn"
 
 [display]
 

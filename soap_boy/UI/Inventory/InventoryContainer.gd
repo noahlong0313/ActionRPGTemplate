@@ -1,6 +1,10 @@
 extends ColorRect
 
 var is_inventory_open = false
+var inventory = preload("res://UI/Inventory/Inventory.tres")
+
+func ready():
+	$NameLabel.text = str(GameState.player_name)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("inventory"):
@@ -18,3 +22,9 @@ func open_inventory():
 	get_tree().paused = true
 	visible = true
 	is_inventory_open = true
+
+func can_drop_data(_position, data):
+	return data is Dictionary and data.has("item")
+
+func drop_data(_position, data):
+	inventory.set_item(data.item_index, data.item)

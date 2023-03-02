@@ -5,7 +5,7 @@ class_name Inventory
 signal items_changed(indexes)
 
 export(Array, Resource) var items = [
-	null, null, null, null, null, null, null, null, null, 
+	null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
 ]
 
 func set_item(item_index, item):

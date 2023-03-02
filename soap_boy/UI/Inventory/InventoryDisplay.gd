@@ -5,7 +5,6 @@ var inventory = preload("res://UI/Inventory/Inventory.tres")
 func _ready():
 	inventory.connect("items_changed", self, "_on_items_changed")
 	update_inventory_display()
-	DayNightModule.visible = false
 
 func update_inventory_display():
 	for item_index in inventory.items.size():
