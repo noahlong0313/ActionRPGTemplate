@@ -3,6 +3,8 @@ extends ColorRect
 export var dialogPath = "res://Dialog/xxx.json"
 export(float) var textSpeed = 0.05
 
+onready var inventoryCont = $"../InventoryContainer"
+
 var dialog
 
 var phraseNum = 0
@@ -22,6 +24,8 @@ func startDialog():
 	$Timer.wait_time = textSpeed
 	dialog = getDialog()
 	assert(dialog, "Dialog not found")
+	inventoryCont.inv_can_open = false
+	inventoryCont.hide_player_ui()
 	nextPhrase()
 
 func getDialog() -> Array:
@@ -68,4 +72,6 @@ func nextPhrase() -> void:
 	return
 
 func _on_DialogBox_dialog_ended():
+	inventoryCont.inv_can_open = true
+	inventoryCont.show_player_ui()
 	phraseNum = 0

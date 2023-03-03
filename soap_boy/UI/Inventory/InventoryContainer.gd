@@ -6,6 +6,7 @@ onready var mana_bar = $"../Mana"
 onready var stamina_bar = $"../Stamina"
 onready var clock = $"../Clock"
 
+var inv_can_open = true
 var is_inventory_open = false
 var inventory = preload("res://UI/Inventory/Inventory.tres")
 
@@ -13,7 +14,7 @@ func _ready():
 	$NameLabel.text = str(GameState.player_name)
 
 func _unhandled_input(event):
-	if event.is_action_pressed("inventory"):
+	if event.is_action_pressed("inventory") and inv_can_open == true:
 		if is_inventory_open == true:
 			close_inventory()
 			show_player_ui()
