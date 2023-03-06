@@ -1,8 +1,16 @@
-extends Resource
+extends TextureRect
 
 class_name Item
 
-export(String) var name = ""
-export(Texture) var texture
+export(String) var id
+export(String) var item_name
 
-var amount = 1
+var picked = false
+
+func pick_item():
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	picked = true
+
+func put_item():
+	mouse_filter = Control.MOUSE_FILTER_PASS
+	picked = false

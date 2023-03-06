@@ -9,17 +9,27 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Button",
+"class": "Chest",
+"language": "GDScript",
+"path": "res://chest.gd"
+}, {
 "base": "Resource",
 "class": "DialogueResource",
 "language": "GDScript",
 "path": "res://addons/dialogue_manager/dialogue_resource.gd"
 }, {
-"base": "Resource",
+"base": "NinePatchRect",
 "class": "Inventory",
 "language": "GDScript",
-"path": "res://UI/Inventory/Inventory.gd"
+"path": "res://UI/Inventory/inventory.gd"
 }, {
-"base": "Resource",
+"base": "TextureRect",
+"class": "Inventory_Slot",
+"language": "GDScript",
+"path": "res://UI/Inventory/inventory_slot.gd"
+}, {
+"base": "TextureRect",
 "class": "Item",
 "language": "GDScript",
 "path": "res://Items/Item.gd"
@@ -40,8 +50,10 @@ _global_script_classes=[ {
 "path": "res://Enemies/SimpleEnemyResource.gd"
 } ]
 _global_script_class_icons={
+"Chest": "",
 "DialogueResource": "",
 "Inventory": "",
+"Inventory_Slot": "",
 "Item": "",
 "NPCResource": "",
 "RaceStats": "",
@@ -59,6 +71,8 @@ config/icon="res://icon2.png"
 
 DayNightModule="*res://World/DayNightModule.tscn"
 GameState="*res://GameState.tscn"
+InvSignalManager="*res://UI/Inventory/managers/InvSignalManager.gd"
+ItemManager="*res://UI/Inventory/managers/ItemManager.gd"
 
 [display]
 

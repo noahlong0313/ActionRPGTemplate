@@ -3,7 +3,7 @@ extends ColorRect
 export var dialogPath = "res://Dialog/xxx.json"
 export(float) var textSpeed = 0.05
 
-onready var inventoryCont = $"../InventoryContainer"
+onready var inventoryCont = $"../inventory_player"
 
 var dialog
 

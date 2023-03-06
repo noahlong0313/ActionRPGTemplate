@@ -1,6 +1,6 @@
 extends Control
 
-onready var inventoryCont = $"../InventoryContainer"
+onready var inventoryCont = $"../inventory_player"
 
 var is_paused = false setget set_is_paused
 

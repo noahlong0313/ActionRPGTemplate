@@ -1,39 +1,35 @@
-extends Resource
+extends NinePatchRect
 
 class_name Inventory
 
-var drag_data = null
+var inventory_slot_res = preload("res://UI/Inventory/inventory_slot.tscn")
 
-signal items_changed(indexes)
+export(String) var inventory_name
+export(int) var size = 0 setget set_inventory_size
 
-export(Array, Resource) var items = [
-	null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
-]
+export(NodePath) onready var title = get_node(title) as Label
+export(NodePath) onready var slot_cont = get_node(slot_cont) as Control
 
-func set_item(item_index, item):
-	var previousItem = items[item_index]
-	items[item_index] = item
-	emit_signal("items_changed", [item_index])
-	return previousItem
+var slots : Array = []
 
-func swap_items(item_index, target_item_index):
-	var targetItem = items[target_item_index]
-	var item = items[item_index]
-	items[target_item_index] = item
-	items[item_index] = targetItem
-	emit_signal("items_changed", [item_index, target_item_index])
+func _ready():
+	for s in slots:
+		slot_cont.add_child(s)
+	
+	title.text = "-" + inventory_name + "-"
+	InvSignalManager.emit_signal("inventory_ready", self)
 
-func remove_item(item_index):
-	var previousItem = items[item_index]
-	items[item_index] = null
-	emit_signal("items_changed", [item_index])
-	return previousItem
 
-func make_items_unique():
-	var unique_items = []
-	for item in items:
-		if item is Item:
-			unique_items.append(item.duplicate())
-		else:
-			unique_items.append(null)
-	items = unique_items
+func set_inventory_size(value):
+	size = value
+	rect_min_size.y = 40 + (ceil(size / 5.0) - 1) * 22
+	
+	for s in size:
+		var new_slot =inventory_slot_res.instance()
+		slots.append(new_slot)
+
+func add_item(item):
+	for s in slots:
+		if not s.item:
+			s.set_item(item)
+			return
