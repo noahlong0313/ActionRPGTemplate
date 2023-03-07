@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/inv_xp_under.png-b5abfee86ff3d057b4311f3f4c8d8101.stex"
+path="res://.import/chest_1_side.png-762d3734936d9635782ea696bd3b8c0a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Inventory/inv_stat_bars/xp/inv_xp_under.png"
-dest_files=[ "res://.import/inv_xp_under.png-b5abfee86ff3d057b4311f3f4c8d8101.stex" ]
+source_file="res://WorldObjects/Containers/sprites/chest_1_side.png"
+dest_files=[ "res://.import/chest_1_side.png-762d3734936d9635782ea696bd3b8c0a.stex" ]
 
 [params]
 

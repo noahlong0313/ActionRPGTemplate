@@ -5,8 +5,6 @@ export(NodePath) onready var inventory = get_node(inventory) as Inventory
 var inv_can_open = true
 var is_inventory_open = false
 
-onready var chest_button1 = $"../Button"
-onready var chest_button2 = $"../Button2"
 onready var xp_bar = $"../XP"
 onready var health_bar = $"../Health"
 onready var mana_bar = $"../Mana"
@@ -41,11 +39,15 @@ func _unhandled_input(event):
 
 func close_inventory():
 	visible = false
+	statDisplay.visible = false
 	is_inventory_open = false
+	player.state = player.MOVE
+	
 
 func open_inventory():
 	visible = true
 	is_inventory_open = true
+	player.state = player.IDLE
 
 func hide_player_ui():
 	xp_bar.visible = false
@@ -53,8 +55,6 @@ func hide_player_ui():
 	mana_bar.visible = false
 	stamina_bar.visible = false
 	clock.visible = false
-	chest_button1.visible = false
-	chest_button2.visible = false
 
 func show_player_ui():
 	xp_bar.visible = true
@@ -62,8 +62,6 @@ func show_player_ui():
 	mana_bar.visible = true
 	stamina_bar.visible = true
 	clock.visible = true
-	chest_button1.visible = true
-	chest_button2.visible = true
 
 #Inventory Stats
 func set_inv_stats():
@@ -84,6 +82,28 @@ func set_stamina_bar():
 	staminaBar.max_value = player.max_stamina
 	staminaBar.value = player.stamina
 
+##Stats Hover
+func _on_HealthBar_mouse_entered():
+	statDisplay.visible = true
+	statDisplay.text = str(floor(player.health)) + "/" + str(player.max_health)
+
+func _on_HealthBar_mouse_exited():
+	statDisplay.visible = false
+
+func _on_ManaBar_mouse_entered():
+	statDisplay.visible = true
+	statDisplay.text = str(floor(player.mana)) + "/" + str(player.max_mana)
+
+func _on_ManaBar_mouse_exited():
+	statDisplay.visible = false
+
+func _on_StaminaBar_mouse_entered():
+	statDisplay.visible = true
+	statDisplay.text = str(floor(player.stamina)) + "/" + str(player.max_stamina)
+
+func _on_StaminaBar_mouse_exited():
+	statDisplay.visible = false
+
 #XP Bar & Level
 func set_xp_bar():
 	xpBar.max_value = player.xp_next_level
@@ -96,3 +116,4 @@ func _on_XPBar_mouse_entered():
 
 func _on_XPBar_mouse_exited():
 	xpProgress.visible = false
+

@@ -9,10 +9,10 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Button",
+"base": "StaticBody2D",
 "class": "Chest",
 "language": "GDScript",
-"path": "res://chest.gd"
+"path": "res://UI/Inventory/Containers/chest.gd"
 }, {
 "base": "Resource",
 "class": "DialogueResource",

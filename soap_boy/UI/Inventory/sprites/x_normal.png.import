@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/inv_stamina.png-8b34be78a1a90404f00fe5c44eeeb924.stex"
+path="res://.import/x_normal.png-7b25d0e52a8069569e3db73a4efbd885.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Inventory/inv_stat_bars/inv_stamina.png"
-dest_files=[ "res://.import/inv_stamina.png-8b34be78a1a90404f00fe5c44eeeb924.stex" ]
+source_file="res://UI/Inventory/sprites/x_normal.png"
+dest_files=[ "res://.import/x_normal.png-7b25d0e52a8069569e3db73a4efbd885.stex" ]
 
 [params]
 

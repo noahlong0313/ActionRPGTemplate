@@ -4,15 +4,15 @@
 [ext_resource path="res://UI/Inventory/inventory.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/Inventory/player/inventory_Player.gd" type="Script" id=3]
 [ext_resource path="res://Fonts/PixelFont_SM.tres" type="DynamicFont" id=4]
-[ext_resource path="res://UI/Inventory/inv_stat_bars/xp/inv_xp_over.png" type="Texture" id=5]
-[ext_resource path="res://UI/Inventory/inv_stat_bars/xp/inv_xp_under.png" type="Texture" id=6]
-[ext_resource path="res://UI/Inventory/inv_stat_bars/xp/inv_level_plate.png" type="Texture" id=7]
-[ext_resource path="res://UI/Inventory/inv_stat_bars/xp/inv_xp_progress.png" type="Texture" id=8]
-[ext_resource path="res://UI/Inventory/inv_stat_bars/inv_health.png" type="Texture" id=9]
-[ext_resource path="res://UI/Inventory/inv_stat_bars/inv_stat_under.png" type="Texture" id=10]
-[ext_resource path="res://UI/Inventory/inv_stat_bars/inv_stat_over.png" type="Texture" id=11]
-[ext_resource path="res://UI/Inventory/inv_stat_bars/inv_mana.png" type="Texture" id=12]
-[ext_resource path="res://UI/Inventory/inv_stat_bars/inv_stamina.png" type="Texture" id=13]
+[ext_resource path="res://UI/Inventory/sprites/inv_xp_over.png" type="Texture" id=5]
+[ext_resource path="res://UI/Inventory/sprites/inv_xp_under.png" type="Texture" id=6]
+[ext_resource path="res://UI/Inventory/sprites/inv_level_plate.png" type="Texture" id=7]
+[ext_resource path="res://UI/Inventory/sprites/inv_xp_progress.png" type="Texture" id=8]
+[ext_resource path="res://UI/Inventory/sprites/inv_health.png" type="Texture" id=9]
+[ext_resource path="res://UI/Inventory/sprites/inv_stat_under.png" type="Texture" id=10]
+[ext_resource path="res://UI/Inventory/sprites/inv_stat_over.png" type="Texture" id=11]
+[ext_resource path="res://UI/Inventory/sprites/inv_mana.png" type="Texture" id=12]
+[ext_resource path="res://UI/Inventory/sprites/inv_stamina.png" type="Texture" id=13]
 
 [node name="inventory_player" instance=ExtResource( 1 )]
 margin_right = 115.0
@@ -26,6 +26,9 @@ margin_left = 0.0
 margin_right = 95.0
 inventory_name = "Inventory"
 size = 12
+
+[node name="Label" parent="inventory_cont/inventory/TextureRect" index="0"]
+custom_colors/font_color = Color( 0.745098, 0.486275, 0.423529, 1 )
 
 [node name="slot_cont" parent="inventory_cont/inventory" index="1"]
 margin_right = 89.0
@@ -122,6 +125,15 @@ custom_colors/font_color = Color( 0.831373, 0.607843, 0.556863, 1 )
 text = "100"
 align = 1
 
+[node name="TextureButton" parent="." index="3"]
+visible = false
+
+[connection signal="mouse_entered" from="StatDisplay/HealthBar" to="." method="_on_HealthBar_mouse_entered"]
+[connection signal="mouse_exited" from="StatDisplay/HealthBar" to="." method="_on_HealthBar_mouse_exited"]
+[connection signal="mouse_entered" from="StatDisplay/ManaBar" to="." method="_on_ManaBar_mouse_entered"]
+[connection signal="mouse_exited" from="StatDisplay/ManaBar" to="." method="_on_ManaBar_mouse_exited"]
+[connection signal="mouse_entered" from="StatDisplay/StaminaBar" to="." method="_on_StaminaBar_mouse_entered"]
+[connection signal="mouse_exited" from="StatDisplay/StaminaBar" to="." method="_on_StaminaBar_mouse_exited"]
 [connection signal="mouse_entered" from="StatDisplay/XPBar" to="." method="_on_XPBar_mouse_entered"]
 [connection signal="mouse_exited" from="StatDisplay/XPBar" to="." method="_on_XPBar_mouse_exited"]
 

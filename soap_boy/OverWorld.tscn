@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=2]
+[gd_scene load_steps=110 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -24,9 +24,9 @@
 [ext_resource path="res://UI/Inventory/inventory_cont.tscn" type="PackedScene" id=22]
 [ext_resource path="res://UI/Inventory/managers/InventoryManager.gd" type="Script" id=23]
 [ext_resource path="res://UI/Inventory/item_info.tscn" type="PackedScene" id=24]
-[ext_resource path="res://chest.gd" type="Script" id=25]
-[ext_resource path="res://chest_rng.gd" type="Script" id=26]
+[ext_resource path="res://UI/Inventory/sprites/inv_level_plate.png" type="Texture" id=25]
 [ext_resource path="res://UI/Inventory/player/inventory_Player.tscn" type="PackedScene" id=27]
+[ext_resource path="res://WorldObjects/Containers/chest_1.tscn" type="PackedScene" id=28]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -598,6 +598,9 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 } ]
 0/z_index = 0
 
+[sub_resource type="StreamTexture" id=88]
+load_path = "res://.import/main panel.png-b1c1ed45a919217848c2710373492ff4.stex"
+
 [node name="OverWorld" type="Node2D"]
 position = Vector2( -1, 0 )
 script = ExtResource( 10 )
@@ -694,6 +697,21 @@ position = Vector2( 41, 224 )
 
 [node name="Bush14" parent="YSort/Bushes" instance=ExtResource( 1 )]
 position = Vector2( 25, 296 )
+
+[node name="Containers" type="YSort" parent="YSort"]
+position = Vector2( 42, 40 )
+
+[node name="chest_1" parent="YSort/Containers" instance=ExtResource( 28 )]
+position = Vector2( 118, -26 )
+size = 15
+inventory_name = "Silly Chest"
+items = [ "sword_iron", "ring_diamond", "ring_diamond" ]
+
+[node name="chest_2" parent="YSort/Containers" instance=ExtResource( 28 )]
+position = Vector2( 27, 353 )
+size = 8
+inventory_name = "Fat Chest"
+items = [ "potion_health", "potion_health", "shield_tall", "sword_iron" ]
 
 [node name="Grass" type="YSort" parent="YSort"]
 
@@ -945,42 +963,50 @@ stats = ExtResource( 19 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="XP" type="ColorRect" parent="CanvasLayer"]
-margin_top = 153.0
-margin_right = 81.0
+[node name="XP" type="NinePatchRect" parent="CanvasLayer"]
+margin_top = 154.0
+margin_right = 65.0
 margin_bottom = 180.0
-color = Color( 0.239216, 0.239216, 0.239216, 0.282353 )
+texture = ExtResource( 25 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 4
 script = ExtResource( 9 )
 
 [node name="LabelXP" type="Label" parent="CanvasLayer/XP"]
-margin_left = 1.0
-margin_right = 41.0
-margin_bottom = 16.0
+margin_left = 2.0
+margin_top = 3.0
+margin_right = 16.0
+margin_bottom = 11.0
+custom_colors/font_color = Color( 0.745098, 0.486275, 0.423529, 1 )
 custom_fonts/font = ExtResource( 16 )
 text = "XP:"
 
 [node name="LabelLevel" type="Label" parent="CanvasLayer/XP"]
-margin_left = 1.0
+margin_left = 2.0
 margin_top = 13.0
-margin_right = 41.0
-margin_bottom = 27.0
+margin_right = 22.0
+margin_bottom = 21.0
+custom_colors/font_color = Color( 0.745098, 0.486275, 0.423529, 1 )
 custom_fonts/font = ExtResource( 16 )
 text = "LVL:"
 
 [node name="ValueXP" type="Label" parent="CanvasLayer/XP"]
-margin_left = 41.0
-margin_right = 81.0
-margin_bottom = 14.0
+margin_left = 39.0
+margin_top = 3.0
+margin_right = 65.0
+margin_bottom = 11.0
 custom_colors/font_color = Color( 0.305882, 1, 0.564706, 1 )
 custom_fonts/font = ExtResource( 16 )
 text = "0/100"
 align = 2
 
 [node name="ValueLevel" type="Label" parent="CanvasLayer/XP"]
-margin_left = 41.0
+margin_left = 61.0
 margin_top = 13.0
-margin_right = 81.0
-margin_bottom = 27.0
+margin_right = 65.0
+margin_bottom = 21.0
 custom_colors/font_color = Color( 1, 0.686275, 0, 1 )
 custom_fonts/font = ExtResource( 16 )
 text = "1"
@@ -1080,23 +1106,24 @@ margin_right = 73.0
 margin_bottom = 7.0
 color = Color( 0.321569, 0.635294, 0.243137, 1 )
 
-[node name="Clock" type="ColorRect" parent="CanvasLayer"]
+[node name="Clock" type="TextureRect" parent="CanvasLayer"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -17.5
-margin_top = -17.0
-margin_right = 17.5
-color = Color( 0.0784314, 0.0784314, 0.0784314, 0.113725 )
+margin_left = -14.5
+margin_top = -14.0
+margin_right = 14.5
+texture = ExtResource( 25 )
 script = ExtResource( 18 )
 
 [node name="Time" type="Label" parent="CanvasLayer/Clock"]
-margin_left = 5.5
-margin_top = 4.0
-margin_right = 31.5
-margin_bottom = 13.0
-text = "00:00"
+margin_left = 1.5
+margin_top = 2.0
+margin_right = 27.5
+margin_bottom = 11.0
+custom_colors/font_color = Color( 0.745098, 0.486275, 0.423529, 1 )
+text = "DAWN"
 align = 1
 
 [node name="DialogBox" parent="CanvasLayer" instance=ExtResource( 20 )]
@@ -1115,35 +1142,13 @@ pause_mode = 2
 visible = false
 margin_top = 10.0
 margin_bottom = 69.0
+texture = SubResource( 88 )
 
 [node name="item_info" parent="CanvasLayer" instance=ExtResource( 24 )]
 visible = false
 
 [node name="item_In_Hand" type="Control" parent="CanvasLayer"]
 mouse_filter = 2
-
-[node name="Button" type="Button" parent="CanvasLayer"]
-margin_left = 128.0
-margin_top = 147.0
-margin_right = 199.0
-margin_bottom = 161.0
-text = "Chest Test"
-script = ExtResource( 25 )
-size = 5
-inventory_name = "cool chest"
-items = [ "ring_diamond", "potion_health", "sword_iron" ]
-
-[node name="Button2" type="Button" parent="CanvasLayer"]
-margin_left = 123.0
-margin_top = 123.0
-margin_right = 205.0
-margin_bottom = 137.0
-text = "Chest Test 2"
-script = ExtResource( 26 )
-size = 15
-inventory_name = "Random Chest"
-items = [ "ring_diamond", "sword_iron" ]
-number_of_items = 8
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 17 )]
 
@@ -1156,5 +1161,3 @@ number_of_items = 8
 [connection signal="pressed" from="CanvasLayer/LevelPopup/LevelUpContainer/ManaButton" to="CanvasLayer/LevelPopup" method="_on_ManaButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/LevelPopup/LevelUpContainer/StaminaButton" to="CanvasLayer/LevelPopup" method="_on_StaminaButton_pressed"]
 [connection signal="dialog_ended" from="CanvasLayer/DialogBox" to="YSort/NPC/Moonpie" method="_on_DialogBox_dialog_ended"]
-[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_Button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Button2" to="CanvasLayer/Button2" method="_on_Button_pressed"]
