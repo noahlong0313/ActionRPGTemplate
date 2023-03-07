@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://UI/Inventory/inventory_cont.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/Inventory/inventory.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/Inventory/player/inventory_Player.gd" type="Script" id=3]
+[ext_resource path="res://Fonts/PixelFont_SM.tres" type="DynamicFont" id=4]
+[ext_resource path="res://UI/Inventory/inv_stat_bars/xp/inv_xp_over.png" type="Texture" id=5]
+[ext_resource path="res://UI/Inventory/inv_stat_bars/xp/inv_xp_under.png" type="Texture" id=6]
+[ext_resource path="res://UI/Inventory/inv_stat_bars/xp/inv_level_plate.png" type="Texture" id=7]
+[ext_resource path="res://UI/Inventory/inv_stat_bars/xp/inv_xp_progress.png" type="Texture" id=8]
+[ext_resource path="res://UI/Inventory/inv_stat_bars/inv_health.png" type="Texture" id=9]
+[ext_resource path="res://UI/Inventory/inv_stat_bars/inv_stat_under.png" type="Texture" id=10]
+[ext_resource path="res://UI/Inventory/inv_stat_bars/inv_stat_over.png" type="Texture" id=11]
+[ext_resource path="res://UI/Inventory/inv_stat_bars/inv_mana.png" type="Texture" id=12]
+[ext_resource path="res://UI/Inventory/inv_stat_bars/inv_stamina.png" type="Texture" id=13]
 
 [node name="inventory_player" instance=ExtResource( 1 )]
 margin_right = 115.0
@@ -20,5 +30,99 @@ size = 12
 [node name="slot_cont" parent="inventory_cont/inventory" index="1"]
 margin_right = 89.0
 columns = 4
+
+[node name="StatDisplay" type="Control" parent="." index="2"]
+margin_right = 144.0
+margin_bottom = 180.0
+
+[node name="PlayerStatLabel" type="Label" parent="StatDisplay" index="0"]
+margin_left = 114.0
+margin_top = 4.0
+margin_right = 146.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 4 )
+text = "100/100"
+align = 1
+
+[node name="HealthBar" type="TextureProgress" parent="StatDisplay" index="1"]
+margin_left = 115.0
+margin_top = 10.0
+margin_right = 124.0
+margin_bottom = 154.0
+texture_under = ExtResource( 10 )
+texture_over = ExtResource( 11 )
+texture_progress = ExtResource( 9 )
+fill_mode = 3
+nine_patch_stretch = true
+stretch_margin_top = 3
+stretch_margin_bottom = 4
+
+[node name="ManaBar" type="TextureProgress" parent="StatDisplay" index="2"]
+margin_left = 125.0
+margin_top = 10.0
+margin_right = 134.0
+margin_bottom = 154.0
+texture_under = ExtResource( 10 )
+texture_over = ExtResource( 11 )
+texture_progress = ExtResource( 12 )
+fill_mode = 3
+nine_patch_stretch = true
+stretch_margin_top = 3
+stretch_margin_bottom = 4
+
+[node name="StaminaBar" type="TextureProgress" parent="StatDisplay" index="3"]
+margin_left = 135.0
+margin_top = 10.0
+margin_right = 144.0
+margin_bottom = 154.0
+texture_under = ExtResource( 10 )
+texture_over = ExtResource( 11 )
+texture_progress = ExtResource( 13 )
+fill_mode = 3
+nine_patch_stretch = true
+stretch_margin_top = 3
+stretch_margin_bottom = 4
+
+[node name="XPBar" type="TextureProgress" parent="StatDisplay" index="4"]
+margin_left = 1.0
+margin_top = 155.0
+margin_right = 113.0
+margin_bottom = 169.0
+grow_vertical = 0
+texture_under = ExtResource( 6 )
+texture_over = ExtResource( 5 )
+texture_progress = ExtResource( 8 )
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_right = 3
+
+[node name="PlayerXPLabel" type="Label" parent="StatDisplay" index="5"]
+margin_left = 44.0
+margin_top = 160.0
+margin_right = 76.0
+margin_bottom = 166.0
+custom_fonts/font = ExtResource( 4 )
+text = "100/100"
+align = 1
+
+[node name="InvLevelPlate" type="TextureRect" parent="StatDisplay" index="6"]
+margin_left = 114.0
+margin_top = 155.0
+margin_right = 144.0
+margin_bottom = 169.0
+texture = ExtResource( 7 )
+stretch_mode = 1
+
+[node name="PlayerLevelLabel" type="Label" parent="StatDisplay" index="7"]
+margin_left = 117.0
+margin_top = 157.0
+margin_right = 142.0
+margin_bottom = 165.0
+custom_colors/font_color = Color( 0.831373, 0.607843, 0.556863, 1 )
+text = "100"
+align = 1
+
+[connection signal="mouse_entered" from="StatDisplay/XPBar" to="." method="_on_XPBar_mouse_entered"]
+[connection signal="mouse_exited" from="StatDisplay/XPBar" to="." method="_on_XPBar_mouse_exited"]
 
 [editable path="inventory_cont/inventory"]
