@@ -12,3 +12,4 @@ texture = ExtResource( 1 )
 script = ExtResource( 2 )
 id = "shield_tall"
 item_name = "Tall Shield"
+equipment_type = 1

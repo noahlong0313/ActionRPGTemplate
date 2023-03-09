@@ -1,16 +1,11 @@
 extends Control
 
-onready var inventoryCont = $"../inventory_player"
-
 var is_paused = false setget set_is_paused
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
-		if inventoryCont.is_inventory_open == true:
-			null
-		else:
-			self.is_paused = !is_paused
-			$CenterContainer/VBoxContainer/SaveButton.grab_focus()
+		self.is_paused = !is_paused
+		$CenterContainer/VBoxContainer/SaveButton.grab_focus()
 
 func set_is_paused(value):
 	is_paused = value

@@ -12,3 +12,4 @@ texture = ExtResource( 1 )
 script = ExtResource( 2 )
 id = "sword_iron"
 item_name = "Iron Sword"
+equipment_type = 2

@@ -17,5 +17,15 @@ onready var items = {
 	"tome_fire" : preload("res://Items/item/firebook.tscn")
 }
 
+onready var placeholders = {
+	GameEnums.EQUIPMENT_TYPE.ACCESSORY : preload("res://UI/Inventory/sprites/placeholder_accessory.png"),
+	GameEnums.EQUIPMENT_TYPE.WEAPON : preload("res://UI/Inventory/sprites/placeholder_weapon.png"),
+	GameEnums.EQUIPMENT_TYPE.MAGIC_1 : preload("res://UI/Inventory/sprites/placeholder_magic_1.png"),
+	GameEnums.EQUIPMENT_TYPE.MAGIC_2 : preload("res://UI/Inventory/sprites/placeholder_magic_2.png")
+}
+
 func get_item(id : String):
 	return items[id].instance()
+
+func get_placeholder(id):
+	return placeholders[id]

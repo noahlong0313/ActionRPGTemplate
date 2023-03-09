@@ -4,13 +4,7 @@ class_name Item
 
 export(String) var id
 export(String) var item_name
+export(GameEnums.EQUIPMENT_TYPE) var equipment_type
 
-var picked = false
-
-func pick_item():
+func _ready():
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
-	picked = true
-
-func put_item():
-	mouse_filter = Control.MOUSE_FILTER_PASS
-	picked = false

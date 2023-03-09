@@ -1,6 +1,9 @@
 extends NinePatchRect
 
 export(NodePath) onready var inventory = get_node(inventory) as Inventory
+export(NodePath) onready var equipment = get_node(equipment) as Inventory
+
+onready var inventoryContainer = $"../inventory_cont"
 
 var inv_can_open = true
 var is_inventory_open = false
@@ -22,8 +25,9 @@ onready var xpProgress = $StatDisplay/PlayerXPLabel
 
 func _ready():
 	$title/Label.text = str(GameState.player_name)
-	rect_size.y = 19 + inventory.rect_size.y
+	rect_size.y = 155
 	xpProgress.visible = false
+	set_inv_stats()
 
 #Open and Close Inventory
 func _unhandled_input(event):
@@ -36,13 +40,14 @@ func _unhandled_input(event):
 			hide_player_ui()
 			open_inventory()
 			set_inv_stats()
+		if inventoryContainer.container_open == true:
+			inventoryContainer.close()
 
 func close_inventory():
 	visible = false
 	statDisplay.visible = false
 	is_inventory_open = false
 	player.state = player.MOVE
-	
 
 func open_inventory():
 	visible = true

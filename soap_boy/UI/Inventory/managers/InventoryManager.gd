@@ -32,6 +32,9 @@ func _on_mouse_exited_slot():
 func _on_gui_input_slot(event : InputEvent, slot : Inventory_Slot):
 	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
 		if item_In_Hand:
+			if slot is Equipment_Slot and item_In_Hand.equipment_type != slot.type:
+				return
+			
 			item_In_Hand_node.remove_child(item_In_Hand)
 			
 			if slot.item:

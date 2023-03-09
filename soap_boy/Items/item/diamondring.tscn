@@ -12,3 +12,4 @@ texture = ExtResource( 1 )
 script = ExtResource( 2 )
 id = "ring_diamond"
 item_name = "Diamond Ring"
+equipment_type = 1

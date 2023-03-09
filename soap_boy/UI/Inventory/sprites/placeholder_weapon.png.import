@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/placeholder_main_hand.png-d512f5fe234a681d84c414ca1da709ba.stex"
+path="res://.import/placeholder_weapon.png-044f8de98c4825559f34dfa8bc1aa1f6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Inventory/sprites/placeholder_main_hand.png"
-dest_files=[ "res://.import/placeholder_main_hand.png-d512f5fe234a681d84c414ca1da709ba.stex" ]
+source_file="res://UI/Inventory/sprites/placeholder_weapon.png"
+dest_files=[ "res://.import/placeholder_weapon.png-044f8de98c4825559f34dfa8bc1aa1f6.stex" ]
 
 [params]
 

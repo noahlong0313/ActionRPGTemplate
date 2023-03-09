@@ -14,11 +14,9 @@ func set_item(new_item):
 	item = new_item
 
 func pick_item():
-	item.pick_item()
 	item_cont.remove_child(item)
 	item = null
 
 func put_item(new_item):
 	item = new_item
-	item.put_item()
 	item_cont.add_child(item)

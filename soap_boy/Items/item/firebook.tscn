@@ -12,3 +12,4 @@ texture = ExtResource( 1 )
 script = ExtResource( 2 )
 id = "tome_fire"
 item_name = "Fire Tome"
+equipment_type = 3
