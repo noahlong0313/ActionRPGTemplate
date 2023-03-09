@@ -12,6 +12,9 @@ onready var items = {
 	
 	#Armor
 	"shield_tall" : preload("res://Items/item/tallshield.tscn"),
+	
+	#Books
+	"tome_fire" : preload("res://Items/item/firebook.tscn")
 }
 
 func get_item(id : String):

@@ -22,7 +22,7 @@ onready var xpProgress = $StatDisplay/PlayerXPLabel
 
 func _ready():
 	$title/Label.text = str(GameState.player_name)
-	rect_size.y = 20 + inventory.rect_size.y
+	rect_size.y = 19 + inventory.rect_size.y
 	xpProgress.visible = false
 
 #Open and Close Inventory
