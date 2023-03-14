@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DiamondRing.png-fe12b79cabb5628ff736c378b3514692.stex"
+path="res://.import/ring_diamond.png-c2b6a6066c82c0740869bcb60cd6060e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/Sprites/DiamondRing.png"
-dest_files=[ "res://.import/DiamondRing.png-fe12b79cabb5628ff736c378b3514692.stex" ]
+source_file="res://Items/Sprites/ring_diamond.png"
+dest_files=[ "res://.import/ring_diamond.png-c2b6a6066c82c0740869bcb60cd6060e.stex" ]
 
 [params]
 

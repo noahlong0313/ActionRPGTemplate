@@ -1,0 +1,69 @@
+{
+  "item_id_Basic": {
+    "name": "Item Name",
+    "stack_size": 1,
+    "type": "NONE",
+    "level": 1
+  },
+  "item_id_Advanced": {
+    "name": "Item Name",
+    "stack_size": 1,
+    "type": "NONE",
+    "level": 1,
+    "base_stats": [{
+      "stat": "NONE",
+      "minimum": 1,
+      "maximum": 3
+    }]
+  },
+    "item_id_MULTI_Advanced": {
+    "name": "Item Name",
+    "stack_size": 1,
+    "type": "NONE",
+    "level": 1,
+    "base_stats": [{
+      "stat": "NONE",
+      "minimum": 1,
+      "maximum": 3
+    },{
+      "stat": "NONE",
+      "minimum": 1,
+      "maximum": 3
+    }]
+  },
+  "potion_health": {
+    "name": "Health Potion",
+    "stack_size": 10,
+    "type": "NONE",
+    "level": 1
+  },
+  "ring_diamond": {
+    "name": "Diamond Ring",
+    "stack_size": 1,
+    "type": "ACCESSORY",
+    "level": 1
+  },
+  "tome_fire": {
+    "name": "Fire Tome",
+    "stack_size": 1,
+    "type": "MAGIC_1",
+    "level": 1
+  },
+  "sword_iron": {
+    "name": "Iron Sword",
+    "stack_size": 1,
+    "type": "WEAPON",
+    "level": 1
+  },
+  "shield_tall": {
+    "name": "Tall Shield",
+    "stack_size": 1,
+    "type": "ACCESSORY",
+    "level": 2,
+    "base_stats": [{
+      "stat": "DEFENSE",
+      "minimum": 1,
+      "maximum": 3
+    }]
+  }
+}

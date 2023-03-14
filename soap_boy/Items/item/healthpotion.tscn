@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Items/Sprites/Potion.png" type="Texture" id=1]
+[ext_resource path="res://Items/Sprites/potion_health.png" type="Texture" id=1]
 [ext_resource path="res://Items/Item.gd" type="Script" id=2]
 
 [node name="healthpotion" type="TextureRect"]

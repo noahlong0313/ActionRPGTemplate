@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/book.png-48ad36653a9cb8ae09ccd78dc81ea12c.stex"
+path="res://.import/tome_fire.png-eb85a149727cb68210cc13dc1b8cf740.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/Sprites/book.png"
-dest_files=[ "res://.import/book.png-48ad36653a9cb8ae09ccd78dc81ea12c.stex" ]
+source_file="res://Items/Sprites/tome_fire.png"
+dest_files=[ "res://.import/tome_fire.png-eb85a149727cb68210cc13dc1b8cf740.stex" ]
 
 [params]
 

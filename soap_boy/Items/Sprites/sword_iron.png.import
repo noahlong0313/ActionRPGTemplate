@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Potion.png-a2b229d9e220a847c0c1027ea488980f.stex"
+path="res://.import/sword_iron.png-60c146a238b16e2e5e07465c1970c455.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/Sprites/Potion.png"
-dest_files=[ "res://.import/Potion.png-a2b229d9e220a847c0c1027ea488980f.stex" ]
+source_file="res://Items/Sprites/sword_iron.png"
+dest_files=[ "res://.import/sword_iron.png-60c146a238b16e2e5e07465c1970c455.stex" ]
 
 [params]
 

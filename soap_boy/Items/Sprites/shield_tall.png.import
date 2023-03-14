@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TallShield.png-76c15c63d937601fd275ee7da2bfad74.stex"
+path="res://.import/shield_tall.png-d2efe4116d1d4fcc2741e0905ed91054.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/Sprites/TallShield.png"
-dest_files=[ "res://.import/TallShield.png-76c15c63d937601fd275ee7da2bfad74.stex" ]
+source_file="res://Items/Sprites/shield_tall.png"
+dest_files=[ "res://.import/shield_tall.png-d2efe4116d1d4fcc2741e0905ed91054.stex" ]
 
 [params]
 

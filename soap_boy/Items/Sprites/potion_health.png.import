@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Sword.png-3782d357023b74892251452275391698.stex"
+path="res://.import/potion_health.png-44c573106f346647c373e7be674a76af.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/Sprites/Sword.png"
-dest_files=[ "res://.import/Sword.png-3782d357023b74892251452275391698.stex" ]
+source_file="res://Items/Sprites/potion_health.png"
+dest_files=[ "res://.import/potion_health.png-44c573106f346647c373e7be674a76af.stex" ]
 
 [params]
 
