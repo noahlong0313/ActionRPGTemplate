@@ -7,6 +7,7 @@ var container_open = false
 
 onready var player = $"../../YSort/Player"
 onready var inventoryPlayer = $"../inventory_player"
+onready var itemInfo = $"../item_info"
 
 func _ready():
 	InvSignalManager.connect("inventory_opened", self, "_on_inventory_opened")
@@ -34,6 +35,7 @@ func close():
 	current_inventories = []
 	hide()
 	container_open = false
+	itemInfo.visible = false
 
 
 func _on_TextureButton_pressed():

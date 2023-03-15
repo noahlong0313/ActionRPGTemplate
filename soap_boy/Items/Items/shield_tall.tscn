@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Items/Item.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/PixelFont_SM.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Items/Sprites/shield_tall.png" type="Texture" id=3]
+
+[node name="Item" type="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+margin_top = 9.0
+margin_right = -308.0
+margin_bottom = -168.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+script = ExtResource( 1 )
+id = "shield_tall"
+item_name = "Tall Shield"
+item_desc = "Sturdy but heavy!"
+equipment_type = 1
+quantity = 1
+stack_size = 1
+player_Speed_Decrease = 15
+max_Health_Increase = 5
+max_Stamina_Decrease = 2
+reg_Stamina_Decrease = 0.2
+
+[node name="quantity_label" type="Label" parent="."]
+visible = false
+margin_left = 3.0
+margin_top = 7.0
+margin_right = 13.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 2 )
+text = "1"
+align = 2

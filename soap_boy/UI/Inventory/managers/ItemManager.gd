@@ -1,8 +1,21 @@
 extends Node
 
-var items_Path = "res://Items/JSON/item.json"
-
-var items = {}
+onready var items = {
+	#Accesories
+	"ring_diamond" : preload("res://Items/Items/diamond_ring.tscn"),
+	
+	#Items
+	"potion_health" : preload("res://Items/Items/potion_health.tscn"),
+	
+	#Weapons
+	"sword_iron" : preload("res://Items/Items/sword_iron.tscn"),
+	
+	#Armor
+	"shield_tall" : preload("res://Items/Items/shield_tall.tscn"),
+	
+	#Books
+	"tome_fire" : preload("res://Items/Items/tome_fire.tscn")
+}
 
 onready var placeholders = {
 	GameEnums.EQUIPMENT_TYPE.ACCESSORY : preload("res://UI/Inventory/sprites/placeholder_accessory.png"),
@@ -11,14 +24,8 @@ onready var placeholders = {
 	GameEnums.EQUIPMENT_TYPE.MAGIC_2 : preload("res://UI/Inventory/sprites/placeholder_magic_2.png")
 }
 
-func _ready():
-	var file = File.new()
-	file.open(items_Path, File.READ)
-	items = parse_json(file.get_as_text())
-	file.close()
-
 func get_item(id : String):
-	return Item.new(id, items[id])
+	return items[id].instance()
 
 func get_placeholder(id):
 	return placeholders[id]

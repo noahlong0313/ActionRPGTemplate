@@ -4,6 +4,7 @@ export(NodePath) onready var inventory = get_node(inventory) as Inventory
 export(NodePath) onready var equipment = get_node(equipment) as Inventory
 
 onready var inventoryContainer = $"../inventory_cont"
+onready var itemInfo = $"../item_info"
 
 var inv_can_open = true
 var is_inventory_open = false
@@ -48,6 +49,7 @@ func close_inventory():
 	statDisplay.visible = false
 	is_inventory_open = false
 	player.state = player.MOVE
+	itemInfo.visible = false
 
 func open_inventory():
 	visible = true

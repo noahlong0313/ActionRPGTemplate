@@ -1,0 +1,134 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Fonts/PixelFont_SM.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UI/Inventory/sprites/inner_panel.png" type="Texture" id=2]
+[ext_resource path="res://UI/Inventory/sprites/main panel.png" type="Texture" id=3]
+[ext_resource path="res://UI/Inventory/sprites/title.png" type="Texture" id=4]
+[ext_resource path="res://UI/Inventory/sprites/x_disabled.png" type="Texture" id=5]
+[ext_resource path="res://UI/Inventory/sprites/x_hover.png" type="Texture" id=6]
+[ext_resource path="res://UI/Inventory/sprites/x_pressed.png" type="Texture" id=7]
+[ext_resource path="res://UI/Inventory/sprites/x_normal.png" type="Texture" id=8]
+[ext_resource path="res://UI/Inventory/split_stack.gd" type="Script" id=9]
+
+[node name="split_stack" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0431373, 0.0431373, 0.0431373, 0.415686 )
+script = ExtResource( 9 )
+
+[node name="main panel" type="NinePatchRect" parent="."]
+margin_left = 84.0
+margin_top = 49.0
+margin_right = 244.0
+margin_bottom = 108.0
+texture = ExtResource( 3 )
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="title" type="NinePatchRect" parent="main panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -40.0
+margin_top = -11.0
+margin_right = 40.0
+margin_bottom = 8.0
+texture = ExtResource( 4 )
+patch_margin_left = 6
+patch_margin_top = 4
+patch_margin_right = 6
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="main panel/title"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.313726, 0.176471, 0.223529, 1 )
+text = "Split Stack"
+align = 1
+valign = 1
+
+[node name="CloseButton" type="TextureButton" parent="main panel"]
+margin_left = 150.0
+margin_top = 1.0
+margin_right = 159.0
+margin_bottom = 10.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 5 )
+
+[node name="scale" type="NinePatchRect" parent="main panel"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 150.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 40 )
+texture = ExtResource( 2 )
+patch_margin_left = 8
+patch_margin_top = 9
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Label" type="Label" parent="main panel/scale"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -29.0
+margin_top = 3.0
+margin_right = 29.0
+margin_bottom = 9.0
+custom_colors/font_color = Color( 0.745098, 0.486275, 0.423529, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "-Quantity-"
+align = 1
+valign = 1
+
+[node name="original_qty" type="Label" parent="main panel/scale"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -62.0
+margin_top = 26.0
+margin_right = -49.0
+margin_bottom = 32.0
+custom_colors/font_color = Color( 0.745098, 0.486275, 0.423529, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "100"
+valign = 1
+
+[node name="new_qty" type="Label" parent="main panel/scale"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 51.0
+margin_top = 26.0
+margin_right = 64.0
+margin_bottom = 32.0
+custom_colors/font_color = Color( 0.745098, 0.486275, 0.423529, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "100"
+align = 2
+valign = 1
+
+[node name="quantity_slider" type="HSlider" parent="main panel/scale"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -62.5
+margin_top = -8.0
+margin_right = 62.5
+margin_bottom = 8.0
+value = 50.0
+
+[node name="SplitButton" type="Button" parent="main panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -31.0
+margin_top = -14.0
+margin_right = 31.0
+text = "Split"
+
+[connection signal="pressed" from="main panel/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="value_changed" from="main panel/scale/quantity_slider" to="." method="_on_quantity_slider_value_changed"]
+[connection signal="pressed" from="main panel/SplitButton" to="." method="_on_SplitButton_pressed"]
