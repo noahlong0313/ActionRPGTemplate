@@ -49,6 +49,12 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var swordHitbox = $HitboxPivot/SwordHitbox
 
+#Object Interaction
+onready var interactArea = $InteractArea
+onready var interactLabels = $Interact_Labels
+
+var current_interactable
+
 #Ready on Start
 func _ready():
 	#Race Stats Convert
@@ -106,6 +112,22 @@ func _process(delta):
 	if new_stamina != stamina:
 		stamina = new_stamina
 		emit_signal("player_stats_changed", self)
+	
+	if not current_interactable:
+		var overlapping_area = interactArea.get_overlapping_areas()
+		
+		if overlapping_area.size() > 0 and overlapping_area[ 0 ].has_method("interact"):
+			current_interactable = overlapping_area[ 0 ]
+			interactLabels.display(current_interactable)
+
+func _input(event):
+	if event.is_action_pressed("interact") and current_interactable:
+		current_interactable.interact()
+
+func _on_InteractArea_area_exited(area):
+	if current_interactable == area:
+		current_interactable = null
+		interactLabels.hide()
 
 func move_state(delta):
 	var input_vector = Vector2.ZERO
@@ -138,7 +160,6 @@ func move_state(delta):
 	if Input.is_action_just_pressed("spell_cast"):
 		state = MAGIC
 		mana_drain()
-	
 
 #State Functions
 ## Roll
@@ -146,27 +167,21 @@ func roll_state(delta):
 	velocity = roll_vector * ROLL_SPEED
 	animationState.travel("Roll")
 	move()
-
 func roll_animation_finished():
 	velocity = velocity / ROLL_END_SPEED
 	state = MOVE
-
 # Attack
 func attack_state(delta):
 	velocity = Vector2.ZERO
 	animationState.travel("Attack")
-
 func attack_animation_finished():
 	state = MOVE
-
 ## Magic
 func magic_state(delta):
 	velocity = velocity / CAST_SPEED
 	animationState.travel("Attack")
-
 func magic_animation_finished():
 	state = MOVE
-
 ## Move
 func move():
 	velocity = move_and_slide(velocity)
@@ -178,7 +193,6 @@ func _on_Hurtbox_area_entered(area):
 	self.health -= 1
 	if health <= 0:
 		queue_free()
-
 ## Stamina
 func stamina_drain_attack():
 	if stamina >= 1:
@@ -193,7 +207,6 @@ func stamina_drain_roll():
 		emit_signal("player_stats_changed", self)
 	else:
 			state = MOVE
-
 ## Magic
 func mana_drain():
 	if mana >= 1:
@@ -201,7 +214,6 @@ func mana_drain():
 		emit_signal("player_stats_changed", self)
 	else:
 			state = MOVE
-
 ## Level System
 func add_xp(value):
 	xp += value

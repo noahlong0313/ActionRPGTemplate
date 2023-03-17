@@ -14,4 +14,3 @@ func display(slot : Inventory_Slot):
 	show()
 	yield(get_tree(), "idle_frame")
 	rect_size.y = item_description_cont.rect_size.y + 9
-	print(rect_size.y)

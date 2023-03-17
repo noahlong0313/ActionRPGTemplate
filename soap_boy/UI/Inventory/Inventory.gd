@@ -30,6 +30,9 @@ func set_inventory_size(value):
 
 func add_item(item):
 	for s in slots:
-		if not s.item:
-			s.set_item(item)
-			return
+		if not s.try_put_item(item):
+			item = s.put_item(item)
+			
+			if not item:
+				return null
+	return item

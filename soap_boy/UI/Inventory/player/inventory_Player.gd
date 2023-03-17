@@ -25,6 +25,8 @@ onready var xpBar = $StatDisplay/XPBar
 onready var xpProgress = $StatDisplay/PlayerXPLabel
 
 func _ready():
+	var inventories = [equipment, inventory]
+	InvSignalManager.emit_signal("player_inventory_ready", inventories)
 	$title/Label.text = str(GameState.player_name)
 	rect_size.y = 155
 	xpProgress.visible = false

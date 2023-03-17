@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Player/Races/elf.tres" type="Resource" id=6]
 [ext_resource path="res://Shadows/light.png" type="Texture" id=7]
 [ext_resource path="res://Shadows/EntityLight.gd" type="Script" id=8]
+[ext_resource path="res://Fonts/PixelFont_SM.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Player/Interact_Labels.gd" type="Script" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.0
@@ -657,8 +659,12 @@ height = 12.0
 radius = 6.0
 height = 8.0
 
+[sub_resource type="CircleShape2D" id=59]
+radius = 12.0
+
 [node name="Player" type="KinematicBody2D"]
-collision_layer = 2
+collision_layer = 1048578
+collision_mask = 33
 script = ExtResource( 1 )
 stats = ExtResource( 6 )
 
@@ -719,6 +725,14 @@ collision_layer = 4
 position = Vector2( 0, -7 )
 shape = SubResource( 58 )
 
+[node name="InteractArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2( 0, -2 )
+shape = SubResource( 59 )
+
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 7 )
 texture_scale = 0.3
@@ -730,7 +744,32 @@ shadow_filter = 2
 shadow_filter_smooth = 25.0
 script = ExtResource( 8 )
 
+[node name="Interact_Labels" type="VBoxContainer" parent="."]
+visible = false
+margin_left = -35.0
+margin_top = -36.0
+margin_right = 35.0
+margin_bottom = -24.0
+custom_constants/separation = 0
+script = ExtResource( 10 )
+
+[node name="ActionLabel" type="Label" parent="Interact_Labels"]
+margin_right = 70.0
+margin_bottom = 6.0
+custom_fonts/font = ExtResource( 9 )
+text = "*action*"
+align = 1
+
+[node name="ObjectLabel" type="Label" parent="Interact_Labels"]
+margin_top = 6.0
+margin_right = 70.0
+margin_bottom = 12.0
+custom_fonts/font = ExtResource( 9 )
+text = "*Object Name*"
+align = 1
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="area_exited" from="InteractArea" to="." method="_on_InteractArea_area_exited"]
 
 [editable path="HitboxPivot/SwordHitbox"]
 [editable path="Hurtbox"]
