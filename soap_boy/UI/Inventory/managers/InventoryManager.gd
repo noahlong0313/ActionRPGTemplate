@@ -6,7 +6,7 @@ export(NodePath) onready var split_stack = get_node(split_stack) as Split_Stack
 
 var player_inventories : Array = []
 var inventories : Array = []
-var item_In_Hand = null
+var item_In_Hand : Item = null
 var item_offset = Vector2.ZERO 
 
 func _ready():
@@ -72,8 +72,7 @@ func _on_item_picked( item, sender ):
 	for i in player_inventories:
 		item = i.add_item( item )
 		
-		if not item:
-			print("Testing")
+		if item != null:
 			sender.item_picked()
 			return
 
