@@ -12,6 +12,15 @@ onready var itemInfo = $"../item_info"
 func _ready():
 	InvSignalManager.connect("inventory_opened", self, "_on_inventory_opened")
 
+func close():
+	for i in current_inventories:
+		inv_cont.remove_child(i)
+	
+	current_inventories = []
+	hide()
+	container_open = false
+	itemInfo.visible = false
+
 func _on_inventory_opened(inventory : Inventory):
 	if current_inventories.size() == 0:
 		rect_size.y = 19
@@ -27,16 +36,6 @@ func _on_inventory_opened(inventory : Inventory):
 	player.state = player.IDLE
 	inventoryPlayer.open_inventory()
 	inventoryPlayer.hide_player_ui()
-
-func close():
-	for i in current_inventories:
-		inv_cont.remove_child(i)
-	
-	current_inventories = []
-	hide()
-	container_open = false
-	itemInfo.visible = false
-
 
 func _on_TextureButton_pressed():
 	close()

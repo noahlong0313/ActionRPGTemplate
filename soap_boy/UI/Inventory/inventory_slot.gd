@@ -22,7 +22,7 @@ func set_item(new_item):
 	item = new_item
 
 func try_put_item(new_item : Item) -> bool:
-	return new_item and not item or (item.id -- new_item.id and item.quantity < item.stack_size)
+	return new_item and not item or ( item.id == new_item.id and item.quantity < item.stack_size )
 
 func put_item( new_item : Item ) -> Item:
 	if new_item:
