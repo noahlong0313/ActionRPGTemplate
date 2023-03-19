@@ -125,4 +125,3 @@ func _on_XPBar_mouse_entered():
 
 func _on_XPBar_mouse_exited():
 	xpProgress.visible = false
-

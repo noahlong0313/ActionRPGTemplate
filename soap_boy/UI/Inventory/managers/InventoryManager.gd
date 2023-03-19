@@ -9,6 +9,8 @@ var inventories : Array = []
 var item_In_Hand : Item = null
 var item_offset = Vector2.ZERO 
 
+onready var playerINV = $"../CanvasLayer/inventory_player"
+
 func _ready():
 	InvSignalManager.connect( "item_picked", self, "_on_item_picked" )
 	InvSignalManager.connect("inventory_ready", self, "_on_inventory_ready")
@@ -72,7 +74,7 @@ func _on_item_picked( item, sender ):
 	for i in player_inventories:
 		item = i.add_item( item )
 		
-		if not item:
+		if item != null:
 			sender.item_picked()
 			return
 

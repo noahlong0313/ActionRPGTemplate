@@ -11,6 +11,7 @@ export(NodePath) onready var title = get_node(title) as Label
 export(NodePath) onready var slot_cont = get_node(slot_cont) as Control
 
 var slots : Array = []
+var is_open
 
 func _ready():
 	for s in slots:

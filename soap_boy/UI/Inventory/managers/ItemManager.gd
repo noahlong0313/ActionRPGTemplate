@@ -24,7 +24,7 @@ onready var placeholders = {
 	GameEnums.EQUIPMENT_TYPE.MAGIC_2 : preload("res://UI/Inventory/sprites/placeholder_magic_2.png")
 }
 
-func get_item(id : String):
+func get_item( id : String ):
 	return items[id].instance()
 
 func get_placeholder(id):

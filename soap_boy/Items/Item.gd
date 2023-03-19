@@ -40,12 +40,16 @@ export(float) var reg_Mana_Decrease
 
 onready var quantity_label: Label = $quantity_label
 
-func _ready():
+func _init(item_id):
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	id = item_id
+
+func _ready():
 	set_quantity(quantity)
 
 func set_quantity(new_value: int) -> void:
 	quantity = new_value
+	
 	if is_instance_valid(quantity_label):
 		$quantity_label.text = str(quantity)
 		$quantity_label.visible = quantity > 1

@@ -11,10 +11,12 @@ onready var itemInfo = $"../item_info"
 
 func _ready():
 	InvSignalManager.connect("inventory_opened", self, "_on_inventory_opened")
+	InvSignalManager.connect("inventory_closed", self, "_on_inventory_closed")
 
 func close():
 	for i in current_inventories:
 		inv_cont.remove_child(i)
+		i.is_open = false
 	
 	current_inventories = []
 	hide()
@@ -22,6 +24,7 @@ func close():
 	itemInfo.visible = false
 
 func _on_inventory_opened(inventory : Inventory):
+	inventory.is_open = true
 	if current_inventories.size() == 0:
 		rect_size.y = 19
 	
@@ -36,6 +39,16 @@ func _on_inventory_opened(inventory : Inventory):
 	player.state = player.IDLE
 	inventoryPlayer.open_inventory()
 	inventoryPlayer.hide_player_ui()
+
+
+func _on_inventory_closed(inventory : Inventory):
+	inventory.is_open = false
+	inv_cont = remove_child(inventory)
+	current_inventories.remove(current_inventories.find(inventory))
+	rect_size.y -= inventory.rect_size.y + inv_cont.get_constant("seperation")
+	
+	if current_inventories.size() == 0:
+		hide()
 
 func _on_TextureButton_pressed():
 	close()

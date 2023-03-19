@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "StaticBody2D",
+"base": "Area2D",
 "class": "Chest",
 "language": "GDScript",
 "path": "res://UI/Inventory/Containers/chest.gd"

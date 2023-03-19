@@ -126,6 +126,9 @@ func _input(event):
 
 func _on_InteractArea_area_exited(area):
 	if current_interactable == area:
+		if current_interactable.has_method("out_of_range"):
+			current_interactable.out_of_range()
+		
 		current_interactable = null
 		interactLabels.hide()
 
