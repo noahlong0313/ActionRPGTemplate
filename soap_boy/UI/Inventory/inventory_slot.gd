@@ -32,6 +32,7 @@ func put_item( new_item : Item ) -> Item:
 				
 				if remainder < 1:
 					return null
+			
 			else:
 				var temp_item = item
 				item_cont.remove_child( item )

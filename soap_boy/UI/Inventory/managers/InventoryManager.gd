@@ -74,7 +74,7 @@ func _on_item_picked( item, sender ):
 	for i in player_inventories:
 		item = i.add_item( item )
 		
-		if item != null:
+		if not item:
 			sender.item_picked()
 			return
 

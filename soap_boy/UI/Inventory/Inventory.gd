@@ -31,11 +31,12 @@ func set_inventory_size(value):
 		var new_slot =inventory_slot_res.instance()
 		slots.append(new_slot)
 
-func add_item(item):
+func add_item( item ):
 	for s in slots:
-		if not s.try_put_item(item):
-			item = s.put_item(item)
+		if s.try_put_item( item ):
+			item = s.put_item( item )
 			
 			if not item:
 				return null
 	return item
+
