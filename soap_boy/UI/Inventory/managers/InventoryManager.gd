@@ -4,18 +4,19 @@ export(NodePath) onready var item_In_Hand_node = get_node(item_In_Hand_node) as 
 export(NodePath) onready var item_info = get_node(item_info) as Control
 export(NodePath) onready var split_stack = get_node(split_stack) as Split_Stack
 
+onready var itemVoid = $"../CanvasLayer/Item_void"
+
 var player_inventories : Array = []
 var inventories : Array = []
 var item_In_Hand : Item = null
 var item_offset = Vector2.ZERO 
-
-onready var playerINV = $"../CanvasLayer/inventory_player"
 
 func _ready():
 	InvSignalManager.connect( "item_picked", self, "_on_item_picked" )
 	InvSignalManager.connect("inventory_ready", self, "_on_inventory_ready")
 	InvSignalManager.connect("player_inventory_ready", self, "_on_player_inventory_ready")
 	split_stack.connect("stackSplit", self, "_on_stackSplit")
+	itemVoid.connect("gui_input", self, "_on_void_gui_input")
 
 func _on_inventory_ready(inventory):
 	inventories.append(inventory)
@@ -28,6 +29,14 @@ func _on_inventory_ready(inventory):
 func _input(event : InputEvent):
 	if event is InputEventMouseMotion and item_In_Hand:
 		item_In_Hand.rect_position = (event.position - item_offset)
+
+func _on_void_gui_input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
+		InvSignalManager.emit_signal("item_dropped", item_In_Hand)
+		
+		item_In_Hand_node.remove_child(item_In_Hand)
+		item_In_Hand = null
+		set_item_void_filter()
 
 func _on_mouse_entered_slot(slot):
 	if slot.item:
@@ -59,8 +68,13 @@ func _on_gui_input_slot(event : InputEvent, slot : Inventory_Slot):
 		set_hand_position(event.global_position)
 
 func set_hand_position(pos):
+	set_item_void_filter()
+	
 	if item_In_Hand:
 		item_In_Hand.rect_position = (pos - item_offset)
+
+func set_item_void_filter():
+	itemVoid.mouse_filter = Control.MOUSE_FILTER_STOP if item_In_Hand else Control.MOUSE_FILTER_IGNORE
 
 func _on_stackSplit(slot, new_quantity):
 	slot.item.quantity -= new_quantity

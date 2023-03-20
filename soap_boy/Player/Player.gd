@@ -71,6 +71,8 @@ func _ready():
 	health = stats.max_health
 	mana = stats.max_mana
 	stamina = stats.max_stamina
+	#Inventory
+	InvSignalManager.connect("item_dropped", self, "_on_item_dropped")
 	#Misc
 	emit_signal("player_stats_changed", self)
 	animationTree.active = true
@@ -131,6 +133,12 @@ func _on_InteractArea_area_exited(area):
 		
 		current_interactable = null
 		interactLabels.hide()
+
+func _on_item_dropped( item ):
+	var floor_item = ItemManager.container.floor_item.instance()
+	floor_item.item = item
+	get_parent().add_child( floor_item )
+	floor_item.position = position
 
 func move_state(delta):
 	var input_vector = Vector2.ZERO

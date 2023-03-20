@@ -978,6 +978,10 @@ stats = ExtResource( 19 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Item_void" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
 [node name="XP" type="NinePatchRect" parent="CanvasLayer"]
 margin_top = 154.0
 margin_right = 65.0
