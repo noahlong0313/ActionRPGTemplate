@@ -135,7 +135,7 @@ func _on_InteractArea_area_exited(area):
 		interactLabels.hide()
 
 func _on_item_dropped( item ):
-	var floor_item = ItemManager.container.floor_item.instance()
+	var floor_item = ItemManager.tscn.floor_item.instance()
 	floor_item.item = item
 	get_parent().add_child( floor_item )
 	floor_item.position = position

@@ -24,8 +24,9 @@ onready var placeholders = {
 	GameEnums.EQUIPMENT_TYPE.MAGIC_2 : preload("res://UI/Inventory/sprites/placeholder_magic_2.png")
 }
 
-var container = {
-	"floor_item": preload("res://Items/Interactables/floor_item.tscn")
+var tscn = {
+	"floor_item": preload("res://Items/Interactables/floor_item.tscn"),
+	"hotbar_slot": preload("res://UI/Inventory/player/hotbar_slot.tscn")
 }
 
 func get_item( id : String ):

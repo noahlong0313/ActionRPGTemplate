@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Fonts/PixelFont_SM.tres" type="DynamicFont" id=1]
 [ext_resource path="res://UI/Inventory/player/inventory_Player.gd" type="Script" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://UI/Inventory/player/equipment_slot.tscn" type="PackedScene" id=21]
 [ext_resource path="res://UI/Inventory/sprites/inv_char_portrait.png" type="Texture" id=22]
 [ext_resource path="res://UI/Inventory/inventory.tscn" type="PackedScene" id=23]
+[ext_resource path="res://UI/Inventory/player/Hotbar.tscn" type="PackedScene" id=24]
 
 [node name="inventory_player" type="NinePatchRect"]
 margin_right = 116.0
@@ -55,7 +56,7 @@ align = 1
 margin_left = 115.0
 margin_top = 10.0
 margin_right = 124.0
-margin_bottom = 154.0
+margin_bottom = 57.0
 texture_under = ExtResource( 9 )
 texture_over = ExtResource( 16 )
 texture_progress = ExtResource( 14 )
@@ -68,7 +69,7 @@ stretch_margin_bottom = 4
 margin_left = 125.0
 margin_top = 10.0
 margin_right = 134.0
-margin_bottom = 154.0
+margin_bottom = 57.0
 texture_under = ExtResource( 9 )
 texture_over = ExtResource( 16 )
 texture_progress = ExtResource( 15 )
@@ -81,7 +82,7 @@ stretch_margin_bottom = 4
 margin_left = 135.0
 margin_top = 10.0
 margin_right = 144.0
-margin_bottom = 154.0
+margin_bottom = 57.0
 texture_under = ExtResource( 9 )
 texture_over = ExtResource( 16 )
 texture_progress = ExtResource( 17 )
@@ -245,6 +246,13 @@ size = 12
 [node name="slot_cont" parent="inventory_cont/inventory" index="1"]
 margin_right = 91.0
 columns = 4
+
+[node name="hotbar" parent="." instance=ExtResource( 24 )]
+margin_left = 115.0
+margin_top = 57.0
+margin_right = 143.0
+margin_bottom = 153.0
+size = 4
 
 [node name="TextureButton" type="TextureButton" parent="."]
 visible = false
