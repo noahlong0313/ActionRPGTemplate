@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Items/Item.gd" type="Script" id=1]
+[ext_resource path="res://Items/Item_Usable.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/PixelFont_SM.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Items/Sprites/potion_health.png" type="Texture" id=3]
 
@@ -12,12 +12,13 @@ margin_bottom = -168.0
 mouse_filter = 2
 texture = ExtResource( 3 )
 script = ExtResource( 1 )
+USEABLE = true
 id = "potion_health"
 item_name = "Health Potion"
 item_desc = "Feels good!"
 quantity = 1
 stack_size = 10
-health_Restored = 5
+health_Restored = 1
 
 [node name="quantity_label" type="Label" parent="."]
 margin_left = 3.0

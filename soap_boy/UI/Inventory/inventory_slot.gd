@@ -26,7 +26,7 @@ func try_put_item(new_item : Item) -> bool:
 
 func put_item( new_item : Item ) -> Item:
 	if new_item:
-		if item:
+		if is_instance_valid(item):
 			if item.id == new_item.id and item.quantity < item.stack_size:
 				var remainder = item.add_item_quantity( new_item.quantity )
 				

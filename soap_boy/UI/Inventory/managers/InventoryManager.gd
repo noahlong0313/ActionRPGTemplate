@@ -39,14 +39,14 @@ func _on_void_gui_input(event):
 		set_item_void_filter()
 
 func _on_mouse_entered_slot(slot):
-	if slot.item:
+	if is_instance_valid(slot.item):
 		item_info.display(slot)
 
 func _on_mouse_exited_slot():
 	item_info.hide()
 
 func _on_gui_input_slot(event : InputEvent, slot : Inventory_Slot):
-	if slot.item and slot.item.quantity > 1 and item_In_Hand == null and event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_RIGHT and  Input.is_key_pressed(KEY_SHIFT):
+	if is_instance_valid(slot.item) and slot.item.quantity > 1 and item_In_Hand == null and event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_RIGHT and  Input.is_key_pressed(KEY_SHIFT):
 		if slot.item.quantity == 2:
 			_on_stackSplit(slot , 1)
 		else:

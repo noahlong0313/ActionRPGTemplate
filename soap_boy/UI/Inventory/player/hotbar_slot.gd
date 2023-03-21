@@ -10,5 +10,6 @@ func _ready():
 	labelKey.text = key
 
 func _input(event):
-	if event.is_action_pressed("use_" + key):
+	if event.is_action_pressed("use_" + key) and is_instance_valid(item) and item.USEABLE == true:
 		print("used hotbar slot: ", key)
+		item.useItem(item)

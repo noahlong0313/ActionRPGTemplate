@@ -2,18 +2,17 @@ extends TextureRect
 
 class_name Item
 
+signal item_depleted
+
 #Base Stats
+export(bool) var USEABLE
+
 export(String) var id
 export(String) var item_name
 export(String, MULTILINE) var item_desc
 export(GameEnums.EQUIPMENT_TYPE) var equipment_type
 export(int) var quantity: int setget set_quantity
 export(int) var stack_size
-
-#Consumable
-export(int) var health_Restored
-export(int) var stamina_Restored
-export(int) var mana_Restored
 
 #Equipment
 ## Weapons / Attacks
@@ -40,6 +39,8 @@ export(float) var reg_Mana_Decrease
 
 onready var quantity_label: Label = $quantity_label
 
+var item_slot
+
 func _ready():
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	set_quantity(quantity)
@@ -56,3 +57,16 @@ func add_item_quantity(value):
 	quantity = min(quantity + value, stack_size)
 	set_quantity(quantity)
 	return remainder
+
+func decreaseQuantity():
+	quantity -= 1
+	if quantity <= 0:
+		emit_signal("item_depleted", self)
+		destroy()
+	set_quantity(quantity)
+
+func useItem(target):
+	decreaseQuantity()
+
+func destroy():
+	queue_free()
