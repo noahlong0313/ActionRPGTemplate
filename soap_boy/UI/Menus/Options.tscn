@@ -41,7 +41,7 @@ text = "L-STICK
 [B]
 
 [A]
-[X]
+R-TRIGGER
 
 [Y]
 
@@ -82,7 +82,7 @@ text = "[W] [A] [S] [D]
 SPACE
 
 L-Mouse Button
-R-Mouse Button
+[X]
 
 [E]
 

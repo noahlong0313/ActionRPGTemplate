@@ -168,7 +168,7 @@ func move_state(delta):
 		state = ATTACK
 		stamina_drain_attack()
 	
-	if Input.is_action_just_pressed("spell_cast"):
+	if Input.is_action_just_pressed("spell_slot_1"):
 		state = MAGIC
 		mana_drain()
 
