@@ -6,6 +6,8 @@ onready var items = {
 	
 	#Items
 	"potion_health" : preload("res://Items/Items/potion_health.tscn"),
+	"potion_mana" : preload("res://Items/Items/potion_mana.tscn"),
+	"potion_stamina" : preload("res://Items/Items/potion_stamina.tscn"),
 	
 	#Weapons
 	"sword_iron" : preload("res://Items/Items/sword_iron.tscn"),
@@ -26,7 +28,8 @@ onready var placeholders = {
 
 var tscn = {
 	"floor_item": preload("res://Items/Interactables/floor_item.tscn"),
-	"hotbar_slot": preload("res://UI/Inventory/player/hotbar_slot.tscn")
+	"hotbar_slot": preload("res://UI/Inventory/player/hotbar_slot.tscn"),
+	"cooldown" : preload("res://UI/Inventory/cooldown.tscn")
 }
 
 func get_item( id : String ):

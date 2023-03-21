@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Items/Item_Usable.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/PixelFont_SM.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Items/Sprites/potion_stamina.png" type="Texture" id=3]
+
+[node name="Item" type="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -308.0
+margin_bottom = -168.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+script = ExtResource( 1 )
+USEABLE = true
+id = "potion_stamina"
+item_name = "Stamina Potion"
+item_desc = "I FEEL STRONG!"
+quantity = 1
+stack_size = 10
+stamina_Restored = 1
+
+[node name="quantity_label" type="Label" parent="."]
+margin_left = 3.0
+margin_top = 7.0
+margin_right = 13.0
+margin_bottom = 13.0
+custom_colors/font_color = Color( 0.207843, 0.490196, 0.188235, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "1"
+align = 2

@@ -705,13 +705,19 @@ position = Vector2( 42, 40 )
 position = Vector2( 118, -26 )
 size = 15
 inventory_name = "Silly Chest"
-items = [ "sword_iron", "ring_diamond", "ring_diamond", "tome_fire", "potion_health", "potion_health", "potion_health", "potion_health" ]
+items = [ "sword_iron", "ring_diamond", "ring_diamond", "tome_fire", "potion_health", "potion_health", "potion_health", "potion_stamina" ]
 
 [node name="chest_2" parent="YSort/Containers" instance=ExtResource( 28 )]
 position = Vector2( 27, 353 )
 size = 8
 inventory_name = "Fat Chest"
 items = [ "potion_health", "potion_health", "shield_tall", "sword_iron" ]
+
+[node name="chest_3" parent="YSort/Containers" instance=ExtResource( 28 )]
+position = Vector2( 87, 224 )
+size = 8
+inventory_name = "Potion Chest"
+items = [ "potion_health", "potion_health", "potion_mana", "potion_mana", "potion_stamina", "potion_stamina" ]
 
 [node name="Interactables" type="YSort" parent="YSort"]
 
