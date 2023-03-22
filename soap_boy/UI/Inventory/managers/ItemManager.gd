@@ -28,8 +28,7 @@ onready var placeholders = {
 
 var tscn = {
 	"floor_item": preload("res://Items/Interactables/floor_item.tscn"),
-	"hotbar_slot": preload("res://UI/Inventory/player/hotbar_slot.tscn"),
-	"cooldown" : preload("res://UI/Inventory/cooldown.tscn")
+	"hotbar_slot": preload("res://UI/Inventory/player/hotbar_slot.tscn")
 }
 
 func get_item( id : String ):
