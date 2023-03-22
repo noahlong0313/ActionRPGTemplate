@@ -20,22 +20,15 @@ export(int) var damage
 export(float) var stamina_drain
 export(float) var mana_drain
 ## Movement
-export(int) var player_Speed_Increase
-export(int) var player_Speed_Decrease
+export(int) var player_Speed_Change
 ## Max Stats
-export(int) var max_Health_Increase
-export(int) var max_Health_Decrease
-export(int) var max_Stamina_Increase
-export(int) var max_Stamina_Decrease
-export(int) var max_Mana_Increase
-export(int) var max_Mana_Decrease
+export(int) var max_Health_Change
+export(int) var max_Stamina_Change
+export(int) var max_Mana_Change
 ## Reg Stats
-export(float) var reg_Health_Increase
-export(float) var reg_Health_Decrease
-export(float) var reg_Stamina_Increase
-export(float) var reg_Stamina_Decrease
-export(float) var reg_Mana_Increase
-export(float) var reg_Mana_Decrease
+export(float) var reg_Health_Change
+export(float) var reg_Stamina_Change
+export(float) var reg_Mana_Change
 
 onready var quantity_label: Label = $quantity_label
 
