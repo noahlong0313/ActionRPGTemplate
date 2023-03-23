@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.png" type="Texture" id=2]
@@ -299,6 +299,222 @@ tracks/0/keys = {
 "values": [ 6 ]
 }
 
+[sub_resource type="Animation" id=71]
+resource_name = "MagicDown"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 72, 73, 74, 75 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "magic_animation_finished"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitboxPivot:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 90.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HitboxPivot/SwordHitbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=72]
+resource_name = "MagicLeft"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 68, 69, 70, 71 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "magic_animation_finished"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitboxPivot:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 180.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HitboxPivot/SwordHitbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=73]
+resource_name = "MagicRight"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 60, 61, 62, 63 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "magic_animation_finished"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitboxPivot:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HitboxPivot/SwordHitbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=74]
+resource_name = "MagicUp"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 64, 65, 66, 67 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "magic_animation_finished"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitboxPivot:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 270.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HitboxPivot/SwordHitbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
 [sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "value"
@@ -574,6 +790,31 @@ blend_point_3/node = SubResource( 20 )
 blend_point_3/pos = Vector2( 0, -1 )
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id=64]
+animation = "MagicLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=65]
+animation = "MagicRight"
+
+[sub_resource type="AnimationNodeAnimation" id=66]
+animation = "MagicUp"
+
+[sub_resource type="AnimationNodeAnimation" id=67]
+animation = "MagicDown"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=68]
+blend_point_0/node = SubResource( 64 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 65 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 66 )
+blend_point_2/pos = Vector2( 0, -1.1 )
+blend_point_3/node = SubResource( 67 )
+blend_point_3/pos = Vector2( 0, 1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
 [sub_resource type="AnimationNodeAnimation" id=51]
 animation = "RollLeft"
 
@@ -636,18 +877,24 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=50]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=69]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=70]
+
 [sub_resource type="AnimationNodeStateMachine" id=14]
 states/Attack/node = SubResource( 36 )
 states/Attack/position = Vector2( 134, 136 )
 states/Idle/node = SubResource( 16 )
 states/Idle/position = Vector2( 134, 57 )
+states/Magic/node = SubResource( 68 )
+states/Magic/position = Vector2( -27, 57 )
 states/Roll/node = SubResource( 48 )
 states/Roll/position = Vector2( 134, -31 )
 states/Run/node = SubResource( 21 )
 states/Run/position = Vector2( 302, 57 )
-transitions = [ "Idle", "Run", SubResource( 26 ), "Run", "Idle", SubResource( 27 ), "Idle", "Attack", SubResource( 37 ), "Attack", "Idle", SubResource( 38 ), "Idle", "Roll", SubResource( 49 ), "Roll", "Idle", SubResource( 50 ) ]
+transitions = [ "Idle", "Run", SubResource( 26 ), "Run", "Idle", SubResource( 27 ), "Idle", "Attack", SubResource( 37 ), "Attack", "Idle", SubResource( 38 ), "Idle", "Roll", SubResource( 49 ), "Roll", "Idle", SubResource( 50 ), "Magic", "Idle", SubResource( 69 ), "Idle", "Magic", SubResource( 70 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -456, -70 )
+graph_offset = Vector2( -480, -42 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=15]
 
@@ -671,7 +918,7 @@ stats = ExtResource( 6 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -10 )
 texture = ExtResource( 2 )
-hframes = 60
+hframes = 76
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -2 )
@@ -687,6 +934,10 @@ anims/IdleDown = SubResource( 10 )
 anims/IdleLeft = SubResource( 9 )
 anims/IdleRight = SubResource( 7 )
 anims/IdleUp = SubResource( 8 )
+anims/MagicDown = SubResource( 71 )
+anims/MagicLeft = SubResource( 72 )
+anims/MagicRight = SubResource( 73 )
+anims/MagicUp = SubResource( 74 )
 anims/RESET = SubResource( 2 )
 anims/RollDown = SubResource( 44 )
 anims/RollLeft = SubResource( 45 )
@@ -701,8 +952,9 @@ anims/RunUp = SubResource( 4 )
 tree_root = SubResource( 14 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 15 )
-parameters/Attack/blend_position = Vector2( 0, 1 )
+parameters/Attack/blend_position = Vector2( 0, -0.0190752 )
 parameters/Idle/blend_position = Vector2( 0, 1 )
+parameters/Magic/blend_position = Vector2( -0.00690848, 0.0445087 )
 parameters/Roll/blend_position = Vector2( 0, 1 )
 parameters/Run/blend_position = Vector2( 0, 1 )
 
@@ -734,6 +986,7 @@ position = Vector2( 0, -2 )
 shape = SubResource( 59 )
 
 [node name="Light2D" type="Light2D" parent="."]
+visible = false
 texture = ExtResource( 7 )
 texture_scale = 0.3
 color = Color( 1, 0.807843, 0.345098, 1 )

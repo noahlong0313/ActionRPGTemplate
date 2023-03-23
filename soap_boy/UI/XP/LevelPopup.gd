@@ -1,5 +1,7 @@
 extends Popup
 
+signal level_up
+
 var player
 
 func _ready():
@@ -14,28 +16,25 @@ func _on_Player_player_level_up():
 	print(player.max_health, player.max_mana, player.max_stamina)
 
 func _on_HealthButton_pressed():
-	player.max_health += 2
-	player.health += 5
+	player.health_lvl_mod += 2
 	player.emit_signal("player_stats_changed", player)
 	hide()
 	set_process_input(false)
 	get_tree().paused = false
-	print(player.max_health)
+	InvSignalManager.emit_signal("level_up")
 
 func _on_ManaButton_pressed():
-	player.max_mana += 2
-	player.mana += 5
+	player.mana_lvl_mod += 2
 	player.emit_signal("player_stats_changed", player)
 	hide()
 	set_process_input(false)
 	get_tree().paused = false
-	print(player.max_mana)
+	InvSignalManager.emit_signal("level_up")
 
 func _on_StaminaButton_pressed():
-	player.max_stamina += 2
-	player.stamina += 5
+	player.stamina_lvl_mod += 2
 	player.emit_signal("player_stats_changed", player)
 	hide()
 	set_process_input(false)
 	get_tree().paused = false
-	print(player.max_stamina)
+	InvSignalManager.emit_signal("level_up")

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Items/Item.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/PixelFont_SM.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Items/Sprites/shield_tall.png" type="Texture" id=3]
+[ext_resource path="res://Items/Sprites/ring_diamond.png" type="Texture" id=3]
 
 [node name="Item" type="TextureRect"]
 anchor_right = 1.0
@@ -12,14 +12,14 @@ margin_bottom = -168.0
 mouse_filter = 2
 texture = ExtResource( 3 )
 script = ExtResource( 1 )
-id = "shield_tall"
-item_name = "Tall Shield"
-item_desc = "Sturdy but heavy!"
+id = "ring_drain"
+item_name = "Ring of Draining"
+item_desc = "Makes me pretty sleepy..."
 equipment_type = 1
 quantity = 1
 stack_size = 1
-max_Health_Change = 5
-reg_Stamina_Change = -0.2
+stamina_drain = 3.0
+mana_drain = 3.0
 
 [node name="quantity_label" type="Label" parent="."]
 visible = false

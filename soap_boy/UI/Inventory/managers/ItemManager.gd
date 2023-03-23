@@ -3,6 +3,7 @@ extends Node
 onready var items = {
 	#Accesories
 	"ring_diamond" : preload("res://Items/Items/diamond_ring.tscn"),
+	"ring_drain" : preload("res://Items/Items/drain_ring.tscn"),
 	
 	#Items
 	"potion_health" : preload("res://Items/Items/potion_health.tscn"),

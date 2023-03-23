@@ -65,7 +65,7 @@ func seek_player():
 
 func _on_Hurtbox_area_entered(area):
 	knockback = area.knockback_vector * knockbackAmount
-	self.health -= 1
+	self.health -= player.player_damage
 	if health <= 0:
 		death()
 

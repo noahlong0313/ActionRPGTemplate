@@ -43,6 +43,15 @@ var stamina
 var xp = 0
 var xp_next_level = 100;
 var level = 1;
+var health_lvl_mod = 0
+var mana_lvl_mod = 0
+var stamina_lvl_mod = 0
+#Equipment
+var equipment
+
+var player_damage
+var stamina_drain = 0
+var mana_drain = 0 
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -73,10 +82,12 @@ func _ready():
 	stamina = stats.max_stamina
 	#Inventory
 	InvSignalManager.connect("item_dropped", self, "_on_item_dropped")
+	InvSignalManager.connect("level_up", self, "_on_level_up")
 	#Misc
 	emit_signal("player_stats_changed", self)
 	animationTree.active = true
 	swordHitbox.knockback_vector = roll_vector
+	equipment = get_node("/root/OverWorld/CanvasLayer/inventory_player/inventory_cont/equipment")
 
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, 200 * delta)
@@ -121,6 +132,16 @@ func _process(delta):
 		if overlapping_area.size() > 0 and overlapping_area[ 0 ].has_method("interact"):
 			current_interactable = overlapping_area[ 0 ]
 			interactLabels.display(current_interactable)
+	
+	#Equipment
+	equipment.get_weapon_stat()
+	equipment.get_accessory_stat()
+	equipment.get_magic1_stat()
+	equipment.get_magic2_stat()
+	equipment.get_equipment_stat()
+	
+	set_reg_stats()
+	set_max_stats()
 
 func _input(event):
 	if event.is_action_pressed("interact") and current_interactable:
@@ -153,6 +174,7 @@ func move_state(delta):
 		animationTree.set("parameters/Run/blend_position", input_vector)
 		animationTree.set("parameters/Attack/blend_position", input_vector)
 		animationTree.set("parameters/Roll/blend_position", input_vector)
+		animationTree.set("parameters/Magic/blend_position", input_vector)
 		animationState.travel("Run")
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
@@ -183,14 +205,16 @@ func roll_animation_finished():
 	state = MOVE
 # Attack
 func attack_state(delta):
+	player_damage = equipment.weapon_damage
 	velocity = Vector2.ZERO
 	animationState.travel("Attack")
 func attack_animation_finished():
 	state = MOVE
 ## Magic
 func magic_state(delta):
+	player_damage = equipment.magic1_damage
 	velocity = velocity / CAST_SPEED
-	animationState.travel("Attack")
+	animationState.travel("Magic")
 func magic_animation_finished():
 	state = MOVE
 ## Move
@@ -198,6 +222,28 @@ func move():
 	velocity = move_and_slide(velocity)
 
 #Stat Functions
+func set_max_stats():
+	max_health = stats.max_health + equipment.equipment_max_health + health_lvl_mod
+	max_mana = stats.max_mana + equipment.equipment_max_mana + mana_lvl_mod
+	max_stamina = stats.max_stamina + equipment.equipment_max_stamina + stamina_lvl_mod
+
+func set_reg_stats():
+	health_reg = stats.health_reg + equipment.equipment_regeneration_health
+	mana_reg = stats.mana_reg + equipment.equipment_regeneration_mana
+	stamina_reg = stats.stamina_reg + equipment.equipment_regeneration_stamina
+	
+	if health_reg <= 0:
+		health_reg = 0
+	if mana_reg <= 0:
+		mana_reg = 0
+	if stamina_reg <= 0:
+		stamina_reg = 0
+
+func _on_level_up():
+	health = max_health
+	mana = max_mana
+	stamina = max_stamina
+
 ## Health
 func _on_Hurtbox_area_entered(area):
 	knockback = area.global_position.direction_to(global_position) * knockbackAmount
@@ -206,11 +252,14 @@ func _on_Hurtbox_area_entered(area):
 		queue_free()
 ## Stamina
 func stamina_drain_attack():
+	stamina_drain = equipment.equipment_drain_stamina
 	if stamina >= 1:
-		self.stamina -= 1
+		self.stamina -= stamina_drain
 		emit_signal("player_stats_changed", self)
 	else:
 			state = MOVE
+	if stamina <= 0:
+		self.stamina = 0
 
 func stamina_drain_roll():
 	if stamina >= 2:
@@ -218,13 +267,18 @@ func stamina_drain_roll():
 		emit_signal("player_stats_changed", self)
 	else:
 			state = MOVE
+	if stamina <= 0:
+		self.stamina = 0
 ## Magic
 func mana_drain():
+	mana_drain = equipment.equipment_drain_mana
 	if mana >= 1:
-		self.mana -= 1
+		self.mana -= mana_drain
 		emit_signal("player_stats_changed", self)
 	else:
 			state = MOVE
+	if mana <= 0:
+		self.mana = 0
 ## Level System
 func add_xp(value):
 	xp += value

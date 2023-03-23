@@ -46,6 +46,9 @@ func _unhandled_input(event):
 		if inventoryContainer.container_open == true:
 			inventoryContainer.close()
 
+func _process(delta):
+	set_inv_stats()
+
 func close_inventory():
 	visible = false
 	statDisplay.visible = false

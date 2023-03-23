@@ -19,7 +19,7 @@ equipment_type = 3
 quantity = 1
 stack_size = 1
 damage = 5
-stamina_drain = 3.0
+mana_drain = 2.0
 
 [node name="quantity_label" type="Label" parent="."]
 visible = false

@@ -12,3 +12,4 @@ signal item_picked( item, sender )
 
 #UI
 signal ui_scale_changed(value)
+signal level_up

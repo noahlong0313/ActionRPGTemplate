@@ -705,7 +705,7 @@ position = Vector2( 42, 40 )
 position = Vector2( 118, -26 )
 size = 15
 inventory_name = "Silly Chest"
-items = [ "sword_iron", "ring_diamond", "ring_diamond", "tome_fire", "potion_health", "potion_health", "potion_health", "potion_stamina" ]
+items = [ "sword_iron", "ring_diamond", "ring_drain", "tome_fire", "potion_health", "potion_health", "potion_health" ]
 
 [node name="chest_2" parent="YSort/Containers" instance=ExtResource( 28 )]
 position = Vector2( 27, 353 )
@@ -1019,7 +1019,7 @@ custom_fonts/font = ExtResource( 16 )
 text = "LVL:"
 
 [node name="ValueXP" type="Label" parent="CanvasLayer/XP"]
-margin_left = 39.0
+margin_left = 22.0
 margin_top = 3.0
 margin_right = 65.0
 margin_bottom = 11.0
@@ -1029,7 +1029,7 @@ text = "0/100"
 align = 2
 
 [node name="ValueLevel" type="Label" parent="CanvasLayer/XP"]
-margin_left = 61.0
+margin_left = 33.0
 margin_top = 13.0
 margin_right = 65.0
 margin_bottom = 21.0
@@ -1188,3 +1188,6 @@ visible = false
 [connection signal="pressed" from="CanvasLayer/LevelPopup/LevelUpContainer/ManaButton" to="CanvasLayer/LevelPopup" method="_on_ManaButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/LevelPopup/LevelUpContainer/StaminaButton" to="CanvasLayer/LevelPopup" method="_on_StaminaButton_pressed"]
 [connection signal="dialog_ended" from="CanvasLayer/DialogBox" to="YSort/NPC/Moonpie" method="_on_DialogBox_dialog_ended"]
+
+[editable path="CanvasLayer/inventory_player"]
+[editable path="CanvasLayer/inventory_player/inventory_cont/inventory"]
