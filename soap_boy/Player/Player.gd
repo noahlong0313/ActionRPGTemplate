@@ -18,7 +18,8 @@ enum {
 	MOVE,
 	ROLL,
 	ATTACK,
-	MAGIC,
+	MAGIC1,
+	MAGIC2,
 	IDLE
 }
 #Movement Variables
@@ -103,8 +104,11 @@ func _physics_process(delta):
 		ATTACK:
 			attack_state(delta)
 		
-		MAGIC:
-			magic_state(delta)
+		MAGIC1:
+			magic1_state(delta)
+		
+		MAGIC2:
+			magic2_state(delta)
 		
 		IDLE:
 			pass
@@ -191,8 +195,18 @@ func move_state(delta):
 		stamina_drain_attack()
 	
 	if Input.is_action_just_pressed("spell_slot_1"):
-		state = MAGIC
-		mana_drain()
+		if equipment.magic1_damage != 0:
+			state = MAGIC1
+			magic1_mana_drain()
+		else:
+			state = MOVE
+	
+	if Input.is_action_just_pressed("spell_slot_2"):
+		if equipment.magic2_damage != 0:
+			state = MAGIC2
+			magic2_mana_drain()
+		else:
+			state = MOVE
 
 #State Functions
 ## Roll
@@ -211,10 +225,16 @@ func attack_state(delta):
 func attack_animation_finished():
 	state = MOVE
 ## Magic
-func magic_state(delta):
+func magic1_state(delta):
 	player_damage = equipment.magic1_damage
 	velocity = velocity / CAST_SPEED
 	animationState.travel("Magic")
+	
+func magic2_state(delta):
+	player_damage = equipment.magic2_damage
+	velocity = velocity / CAST_SPEED
+	animationState.travel("Magic")
+	
 func magic_animation_finished():
 	state = MOVE
 ## Move
@@ -270,8 +290,18 @@ func stamina_drain_roll():
 	if stamina <= 0:
 		self.stamina = 0
 ## Magic
-func mana_drain():
-	mana_drain = equipment.equipment_drain_mana
+func magic1_mana_drain():
+	mana_drain = equipment.magic1_drain
+	if mana >= 1:
+		self.mana -= mana_drain
+		emit_signal("player_stats_changed", self)
+	else:
+			state = MOVE
+	if mana <= 0:
+		self.mana = 0
+
+func magic2_mana_drain():
+	mana_drain = equipment.magic2_drain
 	if mana >= 1:
 		self.mana -= mana_drain
 		emit_signal("player_stats_changed", self)

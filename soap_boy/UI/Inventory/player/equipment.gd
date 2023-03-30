@@ -13,7 +13,8 @@ var magic2_damage = 0
 var accessory_damage = 0
 #Drain
 ##Total from all equipment
-var equipment_drain_mana = 0
+var magic1_drain
+var magic2_drain
 var equipment_drain_stamina = 0
 ##Individual drain Values
 var weapon_stamina_drain = 0
@@ -188,5 +189,6 @@ func get_equipment_stat():
 	equipment_regeneration_health = weapon_regeneration_health + accessory_regeneration_health + magic1_regeneration_health + magic2_regeneration_health
 	equipment_regeneration_mana = weapon_regeneration_mana + accessory_regeneration_mana + magic1_regeneration_mana + magic2_regeneration_mana
 	equipment_regeneration_stamina = weapon_regeneration_stamina + accessory_regeneration_stamina + magic1_regeneration_stamina + magic2_regeneration_stamina
-	equipment_drain_mana = weapon_mana_drain + accessory_mana_drain + magic1_mana_drain + magic2_mana_drain
+	magic1_drain = weapon_mana_drain + accessory_mana_drain + magic1_mana_drain
+	magic2_drain = weapon_mana_drain + accessory_mana_drain + magic2_mana_drain
 	equipment_drain_stamina = weapon_stamina_drain + accessory_stamina_drain + magic1_stamina_drain + magic2_stamina_drain
