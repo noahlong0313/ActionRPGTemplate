@@ -32,12 +32,21 @@ func display(slot : Inventory_Slot):
 	rect_global_position = slot.rect_size + slot.rect_global_position
 	item_name.text = slot.item.item_name
 	item_description.text = slot.item.item_desc
-	show_item_stats(slot)
-	get_item_stats(slot)
 	if slot.item.USEABLE == true:
 		show_usable_stats(slot)
 		get_useable_stats(slot)
-	else:
+		damage_label.visible = false
+		maxHealth_label.visible = false
+		regHealth_label.visible = false
+		maxMana_label.visible = false
+		regMana_label.visible = false
+		costMana_label.visible = false
+		maxStamina_label.visible = false
+		regStamina_label.visible = false
+		costStamina_label.visible = false
+	elif slot.item.EQUIPMENT == true:
+		show_item_stats(slot)
+		get_item_stats(slot)
 		incHealth_label.visible = false
 		incMana_label.visible = false
 		incStamina_label.visible = false

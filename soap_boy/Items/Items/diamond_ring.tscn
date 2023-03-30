@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Items/Item.gd" type="Script" id=1]
+[ext_resource path="res://Items/Item_Equipment.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/PixelFont_SM.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Items/Sprites/ring_diamond.png" type="Texture" id=3]
 
@@ -12,6 +12,7 @@ margin_bottom = -168.0
 mouse_filter = 2
 texture = ExtResource( 3 )
 script = ExtResource( 1 )
+EQUIPMENT = true
 id = "ring_diamond"
 item_name = "Diamond Ring"
 item_desc = "It sure does sparkle!"

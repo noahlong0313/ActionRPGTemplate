@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Items/Item.gd" type="Script" id=1]
+[ext_resource path="res://Items/Item_Equipment.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/PixelFont_SM.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Items/Sprites/sword_iron.png" type="Texture" id=3]
 
@@ -12,9 +12,10 @@ margin_bottom = -168.0
 mouse_filter = 2
 texture = ExtResource( 3 )
 script = ExtResource( 1 )
+EQUIPMENT = true
 id = "sword_iron"
 item_name = "Iron Sword"
-item_desc = "Crude but it gets the job done."
+item_desc = "Crude and rude. Simple, but it gets the job done."
 equipment_type = 2
 quantity = 1
 stack_size = 1

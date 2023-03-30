@@ -54,6 +54,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Items/Item.gd"
 }, {
+"base": "Item",
+"class": "Item_Equipment",
+"language": "GDScript",
+"path": "res://Items/Item_Equipment.gd"
+}, {
 "base": "NinePatchRect",
 "class": "Item_Info",
 "language": "GDScript",
@@ -94,6 +99,7 @@ _global_script_class_icons={
 "Inventory": "",
 "Inventory_Slot": "",
 "Item": "",
+"Item_Equipment": "",
 "Item_Info": "",
 "Item_Usable": "",
 "NPCResource": "",

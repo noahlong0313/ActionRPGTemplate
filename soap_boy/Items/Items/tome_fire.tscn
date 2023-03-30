@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Items/Item.gd" type="Script" id=1]
+[ext_resource path="res://Items/Item_Equipment.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/PixelFont_SM.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Items/Sprites/tome_fire.png" type="Texture" id=3]
 
@@ -12,14 +12,15 @@ margin_bottom = -168.0
 mouse_filter = 2
 texture = ExtResource( 3 )
 script = ExtResource( 1 )
+EQUIPMENT = true
 id = "tome_fire"
-item_name = "Fire Tome"
-item_desc = "Teaches you fire magic."
+item_name = "Tome of Pyromancy"
+item_desc = "Teaches the arcane arts of pyromancy."
 equipment_type = 3
 quantity = 1
 stack_size = 1
-damage = 5
-mana_drain = 2.0
+damage = 4
+mana_drain = 6.0
 
 [node name="quantity_label" type="Label" parent="."]
 visible = false

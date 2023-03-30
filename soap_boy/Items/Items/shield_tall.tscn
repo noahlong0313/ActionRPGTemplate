@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Items/Item.gd" type="Script" id=1]
+[ext_resource path="res://Items/Item_Equipment.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/PixelFont_SM.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Items/Sprites/shield_tall.png" type="Texture" id=3]
 
@@ -12,14 +12,15 @@ margin_bottom = -168.0
 mouse_filter = 2
 texture = ExtResource( 3 )
 script = ExtResource( 1 )
+EQUIPMENT = true
 id = "shield_tall"
 item_name = "Tall Shield"
-item_desc = "Sturdy but heavy!"
+item_desc = "Heavy, but it'll keep you safe!"
 equipment_type = 1
 quantity = 1
 stack_size = 1
 max_Health_Change = 5
-reg_Stamina_Change = -0.2
+reg_Stamina_Change = -0.1
 
 [node name="quantity_label" type="Label" parent="."]
 visible = false

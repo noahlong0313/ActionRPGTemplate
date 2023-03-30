@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Items/Item.gd" type="Script" id=1]
+[ext_resource path="res://Items/Item_Equipment.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/PixelFont_SM.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Items/Sprites/ring_diamond.png" type="Texture" id=3]
 
@@ -12,13 +12,14 @@ margin_bottom = -168.0
 mouse_filter = 2
 texture = ExtResource( 3 )
 script = ExtResource( 1 )
+EQUIPMENT = true
 id = "ring_drain"
-item_name = "Ring of Draining"
-item_desc = "Makes me pretty sleepy..."
+item_name = "Ring of Drain"
+item_desc = "Makes every action feel like a marathon."
 equipment_type = 1
 quantity = 1
 stack_size = 1
-stamina_drain = 3.0
+stamina_drain = 5.0
 mana_drain = 3.0
 
 [node name="quantity_label" type="Label" parent="."]
