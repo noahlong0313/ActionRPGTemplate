@@ -299,7 +299,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=71]
-resource_name = "MagicDown"
+resource_name = "Magic_TOUCH_Down"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -353,7 +353,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=72]
-resource_name = "MagicLeft"
+resource_name = "Magic_TOUCH_Left"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -407,7 +407,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=73]
-resource_name = "MagicRight"
+resource_name = "Magic_TOUCH_Right"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -461,7 +461,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=74]
-resource_name = "MagicUp"
+resource_name = "Magic_TOUCH_Up"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -790,16 +790,16 @@ blend_point_3/pos = Vector2( 0, -1 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id=64]
-animation = "MagicLeft"
+animation = "Magic_TOUCH_Left"
 
 [sub_resource type="AnimationNodeAnimation" id=65]
-animation = "MagicRight"
+animation = "Magic_TOUCH_Right"
 
 [sub_resource type="AnimationNodeAnimation" id=66]
-animation = "MagicUp"
+animation = "Magic_TOUCH_Up"
 
 [sub_resource type="AnimationNodeAnimation" id=67]
-animation = "MagicDown"
+animation = "Magic_TOUCH_Down"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id=68]
 blend_point_0/node = SubResource( 64 )
@@ -876,24 +876,24 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=50]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=69]
+[sub_resource type="AnimationNodeStateMachineTransition" id=75]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=70]
+[sub_resource type="AnimationNodeStateMachineTransition" id=76]
 
 [sub_resource type="AnimationNodeStateMachine" id=14]
 states/Attack/node = SubResource( 36 )
 states/Attack/position = Vector2( 134, 136 )
 states/Idle/node = SubResource( 16 )
 states/Idle/position = Vector2( 134, 57 )
-states/Magic/node = SubResource( 68 )
-states/Magic/position = Vector2( -27, 57 )
+states/Magic_TOUCH/node = SubResource( 68 )
+states/Magic_TOUCH/position = Vector2( -159, 1 )
 states/Roll/node = SubResource( 48 )
 states/Roll/position = Vector2( 134, -31 )
 states/Run/node = SubResource( 21 )
 states/Run/position = Vector2( 302, 57 )
-transitions = [ "Idle", "Run", SubResource( 26 ), "Run", "Idle", SubResource( 27 ), "Idle", "Attack", SubResource( 37 ), "Attack", "Idle", SubResource( 38 ), "Idle", "Roll", SubResource( 49 ), "Roll", "Idle", SubResource( 50 ), "Magic", "Idle", SubResource( 69 ), "Idle", "Magic", SubResource( 70 ) ]
+transitions = [ "Idle", "Run", SubResource( 26 ), "Run", "Idle", SubResource( 27 ), "Idle", "Attack", SubResource( 37 ), "Attack", "Idle", SubResource( 38 ), "Idle", "Roll", SubResource( 49 ), "Roll", "Idle", SubResource( 50 ), "Idle", "Magic_TOUCH", SubResource( 75 ), "Magic_TOUCH", "Idle", SubResource( 76 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -480, -42 )
+graph_offset = Vector2( -482, -142 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=15]
 
@@ -932,10 +932,10 @@ anims/IdleDown = SubResource( 10 )
 anims/IdleLeft = SubResource( 9 )
 anims/IdleRight = SubResource( 7 )
 anims/IdleUp = SubResource( 8 )
-anims/MagicDown = SubResource( 71 )
-anims/MagicLeft = SubResource( 72 )
-anims/MagicRight = SubResource( 73 )
-anims/MagicUp = SubResource( 74 )
+anims/Magic_TOUCH_Down = SubResource( 71 )
+anims/Magic_TOUCH_Left = SubResource( 72 )
+anims/Magic_TOUCH_Right = SubResource( 73 )
+anims/Magic_TOUCH_Up = SubResource( 74 )
 anims/RESET = SubResource( 2 )
 anims/RollDown = SubResource( 44 )
 anims/RollLeft = SubResource( 45 )
@@ -952,7 +952,7 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 15 )
 parameters/Attack/blend_position = Vector2( 0, -0.0190752 )
 parameters/Idle/blend_position = Vector2( 0, 1 )
-parameters/Magic/blend_position = Vector2( -0.00690848, 0.0445087 )
+parameters/Magic_TOUCH/blend_position = Vector2( -0.0310881, 0.271978 )
 parameters/Roll/blend_position = Vector2( 0, 1 )
 parameters/Run/blend_position = Vector2( 0, 1 )
 

@@ -17,8 +17,10 @@ enum {
 	MOVE,
 	ROLL,
 	ATTACK,
-	MAGIC1,
-	MAGIC2,
+	MAGIC_TOUCH,
+	MAGIC_SELF,
+	MAGIC_RANGED,
+	MAGIC_AOE,
 	IDLE
 }
 #Movement Variables
@@ -104,11 +106,17 @@ func _physics_process(delta):
 		ATTACK:
 			attack_state(delta)
 		
-		MAGIC1:
-			magic1_state(delta)
+		MAGIC_TOUCH:
+			magic_state_touch(delta)
 		
-		MAGIC2:
-			magic2_state(delta)
+		MAGIC_SELF:
+			magic_state_self(delta)
+		
+		MAGIC_RANGED:
+			magic_state_ranged(delta)
+		
+		MAGIC_AOE:
+			magic_state_aoe(delta)
 		
 		IDLE:
 			pass
@@ -178,7 +186,7 @@ func move_state(delta):
 		animationTree.set("parameters/Run/blend_position", input_vector)
 		animationTree.set("parameters/Attack/blend_position", input_vector)
 		animationTree.set("parameters/Roll/blend_position", input_vector)
-		animationTree.set("parameters/Magic/blend_position", input_vector)
+		animationTree.set("parameters/Magic_TOUCH/blend_position", input_vector)
 		animationState.travel("Run")
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
@@ -195,16 +203,19 @@ func move_state(delta):
 		stamina_drain_attack()
 	
 	if Input.is_action_just_pressed("spell_slot_1"):
-		if equipment.magic1_damage != 0:
-			state = MAGIC1
+		if equipment.magic1_damage != 0 and mana >= equipment.magic1_mana_drain:
+			player_damage = equipment.magic1_damage
 			magic1_mana_drain()
+			if equipment.magic1_type == GameEnums.MAGIC_TYPE.TOUCH:
+				state = MAGIC_TOUCH
 		else:
 			state = MOVE
 	
 	if Input.is_action_just_pressed("spell_slot_2"):
-		if equipment.magic2_damage != 0:
-			state = MAGIC2
+		if equipment.magic2_damage != 0 and mana >= equipment.magic2_mana_drain:
+			player_damage = equipment.magic2_damage
 			magic2_mana_drain()
+			state = MAGIC_TOUCH
 		else:
 			state = MOVE
 
@@ -224,19 +235,24 @@ func attack_state(delta):
 	animationState.travel("Attack")
 func attack_animation_finished():
 	state = MOVE
+
 ## Magic
-func magic1_state(delta):
-	player_damage = equipment.magic1_damage
+func magic_state_touch(delta):
 	velocity = velocity / CAST_SPEED
-	animationState.travel("Magic")
-	
-func magic2_state(delta):
-	player_damage = equipment.magic2_damage
-	velocity = velocity / CAST_SPEED
-	animationState.travel("Magic")
-	
+	animationState.travel("Magic_TOUCH")
+
+func magic_state_self(delta):
+	pass
+
+func magic_state_ranged(delta):
+	pass
+
+func magic_state_aoe(delta):
+	pass
+
 func magic_animation_finished():
 	state = MOVE
+
 ## Move
 func move():
 	velocity = move_and_slide(velocity)

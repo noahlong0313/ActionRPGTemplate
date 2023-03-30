@@ -70,6 +70,9 @@ var magic2_max_health = 0
 var magic2_max_mana = 0
 var magic2_max_stamina = 0
 
+var magic1_type = null
+var magic2_type = null
+
 var item : Item
 
 func _ready():
@@ -144,8 +147,10 @@ func get_magic1_stat():
 		magic1_max_health = slots[2].item.max_Health_Change
 		magic1_max_mana = slots[2].item.max_Mana_Change
 		magic1_max_stamina = slots[2].item.max_Stamina_Change
+		magic1_type = slots[2].item.magic_type
 	
 	else:
+		magic1_type = null
 		magic1_damage = 0
 		magic1_stamina_drain = 0
 		magic1_mana_drain = 0
@@ -169,8 +174,10 @@ func get_magic2_stat():
 		magic2_max_health = slots[3].item.max_Health_Change
 		magic2_max_mana = slots[3].item.max_Mana_Change
 		magic2_max_stamina = slots[3].item.max_Stamina_Change
+		magic2_type = slots[2].item.magic_type
 	
 	else:
+		magic2_type = null
 		magic2_damage = 0
 		magic2_stamina_drain = 0
 		magic2_mana_drain = 0
