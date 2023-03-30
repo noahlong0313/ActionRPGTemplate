@@ -23,6 +23,8 @@ onready var staminaBar = $StatDisplay/StaminaBar
 onready var playerINVLevel = $StatDisplay/PlayerLevelLabel
 onready var xpBar = $StatDisplay/XPBar
 onready var xpProgress = $StatDisplay/PlayerXPLabel
+onready var gold = $StatDisplay/GoldIcon
+onready var goldLabel = $StatDisplay/GoldIcon/GoldLabel
 
 func _ready():
 	var inventories = [equipment, inventory]
@@ -81,6 +83,10 @@ func set_inv_stats():
 	set_mana_bar()
 	set_stamina_bar()
 	set_xp_bar()
+	set_gold()
+
+func set_gold():
+	goldLabel.text = str(GameState.player_gold)
 
 func set_health_bar():
 	healthBar.max_value = player.max_health
@@ -96,24 +102,30 @@ func set_stamina_bar():
 
 ##Stats Hover
 func _on_HealthBar_mouse_entered():
+	gold.visible = false
 	statDisplay.visible = true
 	statDisplay.text = str(floor(player.health)) + "/" + str(player.max_health)
 
 func _on_HealthBar_mouse_exited():
 	statDisplay.visible = false
+	gold.visible = true
 
 func _on_ManaBar_mouse_entered():
+	gold.visible = false
 	statDisplay.visible = true
 	statDisplay.text = str(floor(player.mana)) + "/" + str(player.max_mana)
 
 func _on_ManaBar_mouse_exited():
 	statDisplay.visible = false
+	gold.visible = true
 
 func _on_StaminaBar_mouse_entered():
+	gold.visible = false
 	statDisplay.visible = true
 	statDisplay.text = str(floor(player.stamina)) + "/" + str(player.max_stamina)
 
 func _on_StaminaBar_mouse_exited():
+	gold.visible = true
 	statDisplay.visible = false
 
 #XP Bar & Level

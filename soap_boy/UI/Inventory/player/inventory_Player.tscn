@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Fonts/PixelFont_SM.tres" type="DynamicFont" id=1]
 [ext_resource path="res://UI/Inventory/player/inventory_Player.gd" type="Script" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://UI/Inventory/sprites/inv_char_portrait.png" type="Texture" id=22]
 [ext_resource path="res://UI/Inventory/inventory.tscn" type="PackedScene" id=23]
 [ext_resource path="res://UI/Inventory/player/Hotbar.tscn" type="PackedScene" id=24]
+[ext_resource path="res://UI/Inventory/sprites/gold_icon.png" type="Texture" id=25]
 
 [node name="inventory_player" type="NinePatchRect"]
 margin_right = 116.0
@@ -133,6 +134,22 @@ margin_bottom = 165.0
 custom_colors/font_color = Color( 0.831373, 0.607843, 0.556863, 1 )
 text = "100"
 align = 1
+
+[node name="GoldIcon" type="TextureRect" parent="StatDisplay"]
+margin_left = 115.0
+margin_right = 124.0
+margin_bottom = 9.0
+texture = ExtResource( 25 )
+
+[node name="GoldLabel" type="Label" parent="StatDisplay/GoldIcon"]
+margin_left = 10.0
+margin_top = 2.0
+margin_right = 47.0
+margin_bottom = 8.0
+custom_colors/font_color = Color( 0.988235, 0.890196, 0.403922, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "1,000,000"
 
 [node name="title" type="NinePatchRect" parent="."]
 anchor_left = 0.5

@@ -72,6 +72,7 @@ func _on_Hurtbox_area_entered(area):
 func death():
 	queue_free()
 	player.add_xp(gained_xp)
+	GameState.player_gold += 15
 	# Death Effect
 	var simpleEnemydeatheffect = SimpleEnemyDeathEffect.instance()
 	get_parent().add_child(simpleEnemydeatheffect)
