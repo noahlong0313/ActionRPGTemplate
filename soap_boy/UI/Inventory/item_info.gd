@@ -6,6 +6,7 @@ export(NodePath) onready var item_name = get_node(item_name) as Label
 
 onready var item_description_cont = $item_info_container
 onready var item_description = $item_info_container/item_desc_Label
+onready var valueLabel = $item_info_container/Value
 
 onready var damage_label = $item_info_container/Damage
 onready var maxHealth_label = $item_info_container/MaxHealth
@@ -50,6 +51,7 @@ func display(slot : Inventory_Slot):
 		incHealth_label.visible = false
 		incMana_label.visible = false
 		incStamina_label.visible = false
+	get_gold_value(slot)
 	show()
 	yield(get_tree(), "idle_frame")
 	rect_size.y = item_description_cont.rect_size.y + 9
@@ -131,3 +133,6 @@ func get_useable_stats(slot : Inventory_Slot):
 	incHealth_label.text = "+" + str(slot.item.health_Restored) + " HEALTH"
 	incMana_label.text = "+" + str(slot.item.mana_Restored) + " MANA"
 	incStamina_label.text = "+" + str(slot.item.stamina_Restored) + " STAMINA"
+
+func get_gold_value(slot : Inventory_Slot):
+	valueLabel.text = "Value : " + str(slot.item.gold_value) + "g"

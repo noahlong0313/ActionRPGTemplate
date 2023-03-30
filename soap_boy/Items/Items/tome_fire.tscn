@@ -15,10 +15,12 @@ script = ExtResource( 1 )
 EQUIPMENT = true
 id = "tome_fire"
 item_name = "Tome of Pyromancy"
+gold_value = 150
 item_desc = "Teaches the arcane arts of pyromancy."
 equipment_type = 3
 quantity = 1
 stack_size = 1
+MAGIC = true
 damage = 4
 mana_drain = 6.0
 

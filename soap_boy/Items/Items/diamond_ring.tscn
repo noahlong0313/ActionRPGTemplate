@@ -15,6 +15,7 @@ script = ExtResource( 1 )
 EQUIPMENT = true
 id = "ring_diamond"
 item_name = "Diamond Ring"
+gold_value = 500
 item_desc = "It sure does sparkle!"
 equipment_type = 1
 quantity = 1

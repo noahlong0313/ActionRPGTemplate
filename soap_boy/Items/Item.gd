@@ -10,6 +10,7 @@ export(bool) var EQUIPMENT
 
 export(String) var id
 export(String) var item_name
+export(int) var gold_value
 export(String, MULTILINE) var item_desc
 export(GameEnums.EQUIPMENT_TYPE) var equipment_type
 export(int) var quantity: int setget set_quantity

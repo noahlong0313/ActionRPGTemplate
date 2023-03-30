@@ -15,6 +15,7 @@ script = ExtResource( 1 )
 EQUIPMENT = true
 id = "ring_drain"
 item_name = "Ring of Drain"
+gold_value = 1200
 item_desc = "Makes every action feel like a marathon."
 equipment_type = 1
 quantity = 1

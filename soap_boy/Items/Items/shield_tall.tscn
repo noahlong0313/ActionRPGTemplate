@@ -15,6 +15,7 @@ script = ExtResource( 1 )
 EQUIPMENT = true
 id = "shield_tall"
 item_name = "Tall Shield"
+gold_value = 80
 item_desc = "Heavy, but it'll keep you safe!"
 equipment_type = 1
 quantity = 1

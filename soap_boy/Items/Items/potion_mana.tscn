@@ -16,6 +16,7 @@ script = ExtResource( 1 )
 USEABLE = true
 id = "potion_mana"
 item_name = "Mana Potion"
+gold_value = 20
 item_desc = "Sticky magic juice"
 quantity = 1
 stack_size = 10

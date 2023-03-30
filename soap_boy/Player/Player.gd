@@ -11,8 +11,7 @@ export var FRICTION = 450
 signal player_stats_changed
 signal player_level_up
 
-#Get Resource from race for stats
-export (Resource) var stats
+var stats : Resource
 
 enum {
 	MOVE,
@@ -67,6 +66,7 @@ var current_interactable
 
 #Ready on Start
 func _ready():
+	stats = GameState.player_race
 	#Race Stats Convert
 	max_health = stats.max_health
 	max_mana = stats.max_mana

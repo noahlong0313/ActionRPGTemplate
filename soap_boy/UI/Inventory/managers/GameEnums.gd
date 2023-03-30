@@ -7,3 +7,10 @@ enum EQUIPMENT_TYPE {
 	MAGIC_1,
 	MAGIC_2
 }
+
+enum MAGIC_TYPE {
+	TOUCH,
+	SELF,
+	RANGED,
+	AOE
+}

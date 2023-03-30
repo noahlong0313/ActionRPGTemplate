@@ -1,6 +1,7 @@
 extends Node
 
-var player_name = "Grobert"
+export(String) var player_name
+export(Resource) var player_race
 var player_gold = 0
 
 
