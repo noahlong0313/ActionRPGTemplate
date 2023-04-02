@@ -5,9 +5,9 @@
 [resource]
 script = ExtResource( 1 )
 race_name = "Dwarf"
-max_health = 9
+max_health = 10
 max_mana = 3
-max_stamina = 10
+max_stamina = 16
 move_speed = 75
 roll_speed = 130
 cast_speed = 6

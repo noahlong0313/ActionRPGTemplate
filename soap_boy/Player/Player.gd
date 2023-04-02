@@ -187,6 +187,8 @@ func move_state(delta):
 		animationTree.set("parameters/Attack/blend_position", input_vector)
 		animationTree.set("parameters/Roll/blend_position", input_vector)
 		animationTree.set("parameters/Magic_TOUCH/blend_position", input_vector)
+		animationTree.set("parameters/Magic_AoE/blend_position", input_vector)
+		animationTree.set("parameters/Magic_SELF/blend_position", input_vector)
 		animationState.travel("Run")
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
@@ -203,19 +205,28 @@ func move_state(delta):
 		stamina_drain_attack()
 	
 	if Input.is_action_just_pressed("spell_slot_1"):
-		if equipment.magic1_damage != 0 and mana >= equipment.magic1_mana_drain:
+		if equipment.magic1_mana_drain != 0 and mana >= equipment.magic1_mana_drain:
 			player_damage = equipment.magic1_damage
 			magic1_mana_drain()
 			if equipment.magic1_type == GameEnums.MAGIC_TYPE.TOUCH:
 				state = MAGIC_TOUCH
+			if equipment.magic1_type == GameEnums.MAGIC_TYPE.AOE:
+				state = MAGIC_AOE
+			if equipment.magic1_type == GameEnums.MAGIC_TYPE.SELF:
+				state = MAGIC_SELF
 		else:
 			state = MOVE
 	
 	if Input.is_action_just_pressed("spell_slot_2"):
-		if equipment.magic2_damage != 0 and mana >= equipment.magic2_mana_drain:
+		if equipment.magic2_mana_drain != 0 and mana >= equipment.magic2_mana_drain:
 			player_damage = equipment.magic2_damage
 			magic2_mana_drain()
-			state = MAGIC_TOUCH
+			if equipment.magic2_type == GameEnums.MAGIC_TYPE.TOUCH:
+				state = MAGIC_TOUCH
+			if equipment.magic2_type == GameEnums.MAGIC_TYPE.AOE:
+				state = MAGIC_AOE
+			if equipment.magic2_type == GameEnums.MAGIC_TYPE.SELF:
+				state = MAGIC_SELF
 		else:
 			state = MOVE
 
@@ -242,13 +253,15 @@ func magic_state_touch(delta):
 	animationState.travel("Magic_TOUCH")
 
 func magic_state_self(delta):
-	pass
+	velocity = velocity / CAST_SPEED
+	animationState.travel("Magic_SELF")
 
 func magic_state_ranged(delta):
 	pass
 
 func magic_state_aoe(delta):
-	pass
+	velocity = velocity / CAST_SPEED
+	animationState.travel("Magic_AoE")
 
 func magic_animation_finished():
 	state = MOVE

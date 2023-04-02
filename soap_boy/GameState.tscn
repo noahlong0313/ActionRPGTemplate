@@ -5,5 +5,5 @@
 
 [node name="GameState" type="Node2D"]
 script = ExtResource( 1 )
-player_name = "Grobert"
+player_name = "Blart"
 player_race = ExtResource( 2 )

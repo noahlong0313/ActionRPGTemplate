@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=93 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.png" type="Texture" id=2]
@@ -298,6 +298,294 @@ tracks/0/keys = {
 "values": [ 6 ]
 }
 
+[sub_resource type="Animation" id=89]
+resource_name = "Magic_AoE_Down"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 92, 93, 94, 95, 96 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "magic_animation_finished"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitboxPivot/SwordHitbox/CollisionShape2D2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="Animation" id=81]
+resource_name = "Magic_AoE_Left"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 86, 87, 88, 89, 90 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "magic_animation_finished"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitboxPivot/SwordHitbox/CollisionShape2D2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="Animation" id=79]
+resource_name = "Magic_AoE_Right"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 77, 78, 79, 80, 97 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "magic_animation_finished"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitboxPivot/SwordHitbox/CollisionShape2D2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="Animation" id=80]
+resource_name = "Magic_AoE_Up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 81, 82, 83, 84, 85 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "magic_animation_finished"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitboxPivot/SwordHitbox/CollisionShape2D2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="Animation" id=92]
+resource_name = "Magic_SELF_Down"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 112, 113, 114, 115, 116 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "magic_animation_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=94]
+resource_name = "Magic_SELF_Left"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 107, 108, 109, 110, 111 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "magic_animation_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=91]
+resource_name = "Magic_SELF_Right"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 97, 98, 99, 100, 101 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "magic_animation_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=93]
+resource_name = "Magic_SELF_Up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 102, 103, 104, 105, 106 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "magic_animation_finished"
+} ]
+}
+
 [sub_resource type="Animation" id=71]
 resource_name = "Magic_TOUCH_Down"
 length = 0.4
@@ -552,6 +840,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [ true ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("HitboxPivot/SwordHitbox/CollisionShape2D2:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=44]
 resource_name = "RollDown"
@@ -789,6 +1101,54 @@ blend_point_3/node = SubResource( 20 )
 blend_point_3/pos = Vector2( 0, -1 )
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id=82]
+animation = "Magic_AoE_Left"
+
+[sub_resource type="AnimationNodeAnimation" id=84]
+animation = "Magic_AoE_Right"
+
+[sub_resource type="AnimationNodeAnimation" id=85]
+animation = "Magic_AoE_Up"
+
+[sub_resource type="AnimationNodeAnimation" id=90]
+animation = "Magic_AoE_Down"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=86]
+blend_point_0/node = SubResource( 82 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 84 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 85 )
+blend_point_2/pos = Vector2( 0, -1.1 )
+blend_point_3/node = SubResource( 90 )
+blend_point_3/pos = Vector2( 0, 1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+
+[sub_resource type="AnimationNodeAnimation" id=95]
+animation = "Magic_SELF_Left"
+
+[sub_resource type="AnimationNodeAnimation" id=96]
+animation = "Magic_SELF_Down"
+
+[sub_resource type="AnimationNodeAnimation" id=97]
+animation = "Magic_SELF_Right"
+
+[sub_resource type="AnimationNodeAnimation" id=98]
+animation = "Magic_SELF_Up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=99]
+blend_point_0/node = SubResource( 95 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 96 )
+blend_point_1/pos = Vector2( 0, 1.1 )
+blend_point_2/node = SubResource( 97 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 98 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+
 [sub_resource type="AnimationNodeAnimation" id=64]
 animation = "Magic_TOUCH_Left"
 
@@ -880,26 +1240,41 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=76]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=87]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=88]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=100]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=101]
+
 [sub_resource type="AnimationNodeStateMachine" id=14]
 states/Attack/node = SubResource( 36 )
 states/Attack/position = Vector2( 134, 136 )
 states/Idle/node = SubResource( 16 )
 states/Idle/position = Vector2( 134, 57 )
+states/Magic_AoE/node = SubResource( 86 )
+states/Magic_AoE/position = Vector2( -167, 69 )
+states/Magic_SELF/node = SubResource( 99 )
+states/Magic_SELF/position = Vector2( -167, 162 )
 states/Magic_TOUCH/node = SubResource( 68 )
-states/Magic_TOUCH/position = Vector2( -159, 1 )
+states/Magic_TOUCH/position = Vector2( -167, -31 )
 states/Roll/node = SubResource( 48 )
 states/Roll/position = Vector2( 134, -31 )
 states/Run/node = SubResource( 21 )
 states/Run/position = Vector2( 302, 57 )
-transitions = [ "Idle", "Run", SubResource( 26 ), "Run", "Idle", SubResource( 27 ), "Idle", "Attack", SubResource( 37 ), "Attack", "Idle", SubResource( 38 ), "Idle", "Roll", SubResource( 49 ), "Roll", "Idle", SubResource( 50 ), "Idle", "Magic_TOUCH", SubResource( 75 ), "Magic_TOUCH", "Idle", SubResource( 76 ) ]
+transitions = [ "Idle", "Run", SubResource( 26 ), "Run", "Idle", SubResource( 27 ), "Idle", "Attack", SubResource( 37 ), "Attack", "Idle", SubResource( 38 ), "Idle", "Roll", SubResource( 49 ), "Roll", "Idle", SubResource( 50 ), "Idle", "Magic_TOUCH", SubResource( 75 ), "Magic_TOUCH", "Idle", SubResource( 76 ), "Magic_AoE", "Idle", SubResource( 87 ), "Idle", "Magic_AoE", SubResource( 88 ), "Magic_SELF", "Idle", SubResource( 100 ), "Idle", "Magic_SELF", SubResource( 101 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -482, -142 )
+graph_offset = Vector2( -550, 24 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=15]
 
 [sub_resource type="CapsuleShape2D" id=43]
 radius = 8.0
 height = 12.0
+
+[sub_resource type="CircleShape2D" id=77]
+radius = 22.3607
 
 [sub_resource type="CapsuleShape2D" id=58]
 radius = 6.0
@@ -916,7 +1291,7 @@ script = ExtResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -10 )
 texture = ExtResource( 2 )
-hframes = 76
+hframes = 117
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -2 )
@@ -932,6 +1307,14 @@ anims/IdleDown = SubResource( 10 )
 anims/IdleLeft = SubResource( 9 )
 anims/IdleRight = SubResource( 7 )
 anims/IdleUp = SubResource( 8 )
+anims/Magic_AoE_Down = SubResource( 89 )
+anims/Magic_AoE_Left = SubResource( 81 )
+anims/Magic_AoE_Right = SubResource( 79 )
+anims/Magic_AoE_Up = SubResource( 80 )
+anims/Magic_SELF_Down = SubResource( 92 )
+anims/Magic_SELF_Left = SubResource( 94 )
+anims/Magic_SELF_Right = SubResource( 91 )
+anims/Magic_SELF_Up = SubResource( 93 )
 anims/Magic_TOUCH_Down = SubResource( 71 )
 anims/Magic_TOUCH_Left = SubResource( 72 )
 anims/Magic_TOUCH_Right = SubResource( 73 )
@@ -952,6 +1335,8 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 15 )
 parameters/Attack/blend_position = Vector2( 0, -0.0190752 )
 parameters/Idle/blend_position = Vector2( 0, 1 )
+parameters/Magic_AoE/blend_position = Vector2( 0.00345421, 0.017341 )
+parameters/Magic_SELF/blend_position = Vector2( 0, 0 )
 parameters/Magic_TOUCH/blend_position = Vector2( -0.0310881, 0.271978 )
 parameters/Roll/blend_position = Vector2( 0, 1 )
 parameters/Run/blend_position = Vector2( 0, 1 )
@@ -966,6 +1351,11 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape2D" parent="HitboxPivot/SwordHitbox" index="0"]
 shape = SubResource( 43 )
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitboxPivot/SwordHitbox"]
+position = Vector2( -15, 1 )
+shape = SubResource( 77 )
 disabled = true
 
 [node name="Hurtbox" parent="." instance=ExtResource( 5 )]

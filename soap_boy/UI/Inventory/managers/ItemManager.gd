@@ -17,7 +17,9 @@ onready var items = {
 	"shield_tall" : preload("res://Items/Items/shield_tall.tscn"),
 	
 	#Books
-	"tome_fire" : preload("res://Items/Items/tome_fire.tscn")
+	"tome_Touch_fire" : preload("res://Items/Items/tome_fire_Touch.tscn"),
+	"tome_AoE_earth" : preload("res://Items/Items/tome_earth_AoE.tscn"),
+	"tome_Self_dark" : preload("res://Items/Items/tome_dark_Self.tscn")
 }
 
 onready var placeholders = {

@@ -27,3 +27,5 @@ export(float) var reg_Mana_Change = 0
 # Magic Type
 
 var item : Item
+
+

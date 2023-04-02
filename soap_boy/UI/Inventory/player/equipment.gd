@@ -174,7 +174,7 @@ func get_magic2_stat():
 		magic2_max_health = slots[3].item.max_Health_Change
 		magic2_max_mana = slots[3].item.max_Mana_Change
 		magic2_max_stamina = slots[3].item.max_Stamina_Change
-		magic2_type = slots[2].item.magic_type
+		magic2_type = slots[3].item.magic_type
 	
 	else:
 		magic2_type = null
