@@ -24,8 +24,10 @@ export(float) var reg_Health_Change = 0
 export(float) var reg_Stamina_Change = 0
 export(float) var reg_Mana_Change = 0
 
-# Magic Type
+# Self Spells
+export(int) var self_heal
+export(int) var self_stamina
 
-var item : Item
+export(bool) var TIMED_SPELL
 
-
+export(float) var time

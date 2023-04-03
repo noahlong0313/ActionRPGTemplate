@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=2]
+[gd_scene load_steps=114 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -29,6 +29,9 @@
 [ext_resource path="res://UI/Inventory/split_stack.tscn" type="PackedScene" id=27]
 [ext_resource path="res://WorldObjects/Containers/chest_1.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Items/Interactables/floor_item.tscn" type="PackedScene" id=29]
+[ext_resource path="res://UI/Inventory/sprites/spellTime_over.png" type="Texture" id=30]
+[ext_resource path="res://UI/Inventory/sprites/spellTime_under.png" type="Texture" id=31]
+[ext_resource path="res://UI/Inventory/sprites/spellTime_progress.png" type="Texture" id=32]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -717,7 +720,7 @@ items = [ "potion_health", "potion_health", "shield_tall", "sword_iron" ]
 position = Vector2( 87, 224 )
 size = 8
 inventory_name = "Potion Chest"
-items = [ "potion_health", "potion_health", "potion_mana", "potion_mana", "potion_stamina", "potion_stamina" ]
+items = [ "potion_health", "potion_health", "potion_mana", "potion_mana", "potion_stamina", "potion_stamina", "tome_Self_yellow" ]
 
 [node name="Interactables" type="YSort" parent="YSort"]
 
@@ -988,6 +991,32 @@ stats = ExtResource( 19 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+
+[node name="spellTime_UI" type="HBoxContainer" parent="CanvasLayer"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 93.0
+margin_bottom = 27.0
+
+[node name="spellTime_magic1_UI" type="TextureProgress" parent="CanvasLayer/spellTime_UI"]
+visible = false
+margin_right = 25.0
+margin_bottom = 25.0
+step = 0.01
+texture_under = ExtResource( 31 )
+texture_over = ExtResource( 30 )
+texture_progress = ExtResource( 32 )
+fill_mode = 5
+
+[node name="spellTime_magic2_UI" type="TextureProgress" parent="CanvasLayer/spellTime_UI"]
+visible = false
+margin_right = 25.0
+margin_bottom = 25.0
+step = 0.01
+texture_under = ExtResource( 31 )
+texture_over = ExtResource( 30 )
+texture_progress = ExtResource( 32 )
+fill_mode = 5
 
 [node name="XP" type="NinePatchRect" parent="CanvasLayer"]
 margin_top = 154.0

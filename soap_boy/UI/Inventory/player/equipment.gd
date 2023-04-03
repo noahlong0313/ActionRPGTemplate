@@ -70,16 +70,29 @@ var magic2_max_health = 0
 var magic2_max_mana = 0
 var magic2_max_stamina = 0
 
+# Spells
+##Self Cast
+var magic1_self_health = 0
+var magic1_self_stamina = 0
+var magic2_self_health = 0
+var magic2_self_stamina = 0
+var magic1_spellTime = 0.0
+var magic2_spellTime = 0.0
+
 var magic1_type = null
 var magic2_type = null
+var magic1_timed = false
+var magic2_timed = false
 
 var item : Item
+var player
 
 func _ready():
 	slots.append(accessory)
 	slots.append(weapon)
 	slots.append(magic_1)
 	slots.append(magic_2)
+	player = get_tree().root.get_node("/root/OverWorld/YSort/Player")
 	InvSignalManager.emit_signal("inventory_ready", self)
 
 func set_inventory_size(value):
@@ -148,9 +161,14 @@ func get_magic1_stat():
 		magic1_max_mana = slots[2].item.max_Mana_Change
 		magic1_max_stamina = slots[2].item.max_Stamina_Change
 		magic1_type = slots[2].item.magic_type
+		magic1_self_health = slots[2].item.self_heal
+		magic1_self_stamina = slots[2].item.self_stamina
+		magic1_spellTime = slots[2].item.time
+		magic1_timed = slots[2].item.TIMED_SPELL
 	
 	else:
 		magic1_type = null
+		magic1_timed = false
 		magic1_damage = 0
 		magic1_stamina_drain = 0
 		magic1_mana_drain = 0
@@ -161,6 +179,9 @@ func get_magic1_stat():
 		magic1_max_health = 0
 		magic1_max_mana = 0
 		magic1_max_stamina = 0
+		magic1_self_health = 0
+		magic1_self_stamina = 0
+		magic1_spellTime = 0.0
 
 func get_magic2_stat():
 	if slots[3].item:
@@ -175,9 +196,14 @@ func get_magic2_stat():
 		magic2_max_mana = slots[3].item.max_Mana_Change
 		magic2_max_stamina = slots[3].item.max_Stamina_Change
 		magic2_type = slots[3].item.magic_type
+		magic2_self_health = slots[3].item.self_heal
+		magic2_self_stamina = slots[3].item.self_stamina
+		magic2_spellTime = slots[3].item.time
+		magic2_timed = slots[3].item.TIMED_SPELL
 	
 	else:
 		magic2_type = null
+		magic2_timed = false
 		magic2_damage = 0
 		magic2_stamina_drain = 0
 		magic2_mana_drain = 0
@@ -188,14 +214,21 @@ func get_magic2_stat():
 		magic2_max_health = 0
 		magic2_max_mana = 0
 		magic2_max_stamina = 0
+		magic2_self_health = 0
+		magic2_self_stamina = 0
+		magic2_spellTime = 0.0
 
 func get_equipment_stat():
-	equipment_max_health = weapon_max_health + accessory_max_health + magic1_max_health + magic2_max_health
+	equipment_max_health = weapon_max_health + accessory_max_health
 	equipment_max_mana = weapon_max_mana + accessory_max_mana + magic1_max_mana + magic2_max_mana
-	equipment_max_stamina = weapon_max_stamina + accessory_max_stamina + magic1_max_stamina + magic2_max_stamina
-	equipment_regeneration_health = weapon_regeneration_health + accessory_regeneration_health + magic1_regeneration_health + magic2_regeneration_health
+	equipment_max_stamina = weapon_max_stamina + accessory_max_stamina
+	equipment_regeneration_health = weapon_regeneration_health + accessory_regeneration_health
 	equipment_regeneration_mana = weapon_regeneration_mana + accessory_regeneration_mana + magic1_regeneration_mana + magic2_regeneration_mana
-	equipment_regeneration_stamina = weapon_regeneration_stamina + accessory_regeneration_stamina + magic1_regeneration_stamina + magic2_regeneration_stamina
+	equipment_regeneration_stamina = weapon_regeneration_stamina + accessory_regeneration_stamina
+	equipment_drain_stamina = weapon_stamina_drain + accessory_stamina_drain + magic1_stamina_drain + magic2_stamina_drain
 	magic1_drain = weapon_mana_drain + accessory_mana_drain + magic1_mana_drain
 	magic2_drain = weapon_mana_drain + accessory_mana_drain + magic2_mana_drain
-	equipment_drain_stamina = weapon_stamina_drain + accessory_stamina_drain + magic1_stamina_drain + magic2_stamina_drain
+
+func self_cast():
+	player.health += magic1_self_health + magic2_self_health
+	player.stamina += magic1_self_stamina + magic2_self_stamina

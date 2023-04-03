@@ -19,7 +19,8 @@ onready var items = {
 	#Books
 	"tome_Touch_fire" : preload("res://Items/Items/tome_fire_Touch.tscn"),
 	"tome_AoE_earth" : preload("res://Items/Items/tome_earth_AoE.tscn"),
-	"tome_Self_dark" : preload("res://Items/Items/tome_dark_Self.tscn")
+	"tome_Self_dark" : preload("res://Items/Items/tome_dark_Self.tscn"),
+	"tome_Self_yellow" : preload("res://Items/Items/tome_yellow_Self.tscn")
 }
 
 onready var placeholders = {

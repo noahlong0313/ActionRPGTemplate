@@ -1408,8 +1408,14 @@ custom_fonts/font = ExtResource( 9 )
 text = "*Object Name*"
 align = 1
 
+[node name="SpellTimer_magic1" type="Timer" parent="."]
+
+[node name="SpellTimer_magic2" type="Timer" parent="."]
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="area_exited" from="InteractArea" to="." method="_on_InteractArea_area_exited"]
+[connection signal="timeout" from="SpellTimer_magic1" to="." method="_on_SpellTimer_magic1_timeout"]
+[connection signal="timeout" from="SpellTimer_magic2" to="." method="_on_SpellTimer_magic2_timeout"]
 
 [editable path="HitboxPivot/SwordHitbox"]
 [editable path="Hurtbox"]

@@ -64,7 +64,14 @@ onready var swordHitbox = $HitboxPivot/SwordHitbox
 onready var interactArea = $InteractArea
 onready var interactLabels = $Interact_Labels
 
+onready var spellTimer_magic1 = $SpellTimer_magic1
+onready var spellTimer_magic2 = $SpellTimer_magic2
+onready var spellUI_magic1 = $"../../CanvasLayer/spellTime_UI/spellTime_magic1_UI"
+onready var spellUI_magic2 = $"../../CanvasLayer/spellTime_UI/spellTime_magic2_UI"
+
+
 var current_interactable
+var item : Item
 
 #Ready on Start
 func _ready():
@@ -154,6 +161,10 @@ func _process(delta):
 	
 	set_reg_stats()
 	set_max_stats()
+	
+	#Spell Timer
+	spellUI_magic2.value = spellTimer_magic2.time_left
+	spellUI_magic1.value = spellTimer_magic1.time_left
 
 func _input(event):
 	if event.is_action_pressed("interact") and current_interactable:
@@ -214,6 +225,10 @@ func move_state(delta):
 				state = MAGIC_AOE
 			if equipment.magic1_type == GameEnums.MAGIC_TYPE.SELF:
 				state = MAGIC_SELF
+				if equipment.magic1_timed == true:
+					set_spellTimer_magic1()
+				else:
+					equipment.self_cast()
 		else:
 			state = MOVE
 	
@@ -227,6 +242,10 @@ func move_state(delta):
 				state = MAGIC_AOE
 			if equipment.magic2_type == GameEnums.MAGIC_TYPE.SELF:
 				state = MAGIC_SELF
+				if equipment.magic2_timed == true:
+					set_spellTimer_magic2()
+				else:
+					equipment.self_cast()
 		else:
 			state = MOVE
 
@@ -272,9 +291,18 @@ func move():
 
 #Stat Functions
 func set_max_stats():
-	max_health = stats.max_health + equipment.equipment_max_health + health_lvl_mod
 	max_mana = stats.max_mana + equipment.equipment_max_mana + mana_lvl_mod
-	max_stamina = stats.max_stamina + equipment.equipment_max_stamina + stamina_lvl_mod
+	if spellTimer_magic1.time_left <= 0.0 and spellTimer_magic2.time_left <= 0.0:
+		max_health = stats.max_health + equipment.equipment_max_health + health_lvl_mod
+		max_stamina = stats.max_stamina + equipment.equipment_max_stamina + stamina_lvl_mod
+	elif spellTimer_magic1.time_left > 0.0:
+		max_health = stats.max_health + equipment.equipment_max_health + health_lvl_mod + equipment.magic1_max_health
+		max_stamina = stats.max_stamina + equipment.equipment_max_stamina + stamina_lvl_mod + equipment.magic1_max_stamina
+		set_spellStat_magic1()
+	elif spellTimer_magic2.time_left > 0.0:
+		max_health = stats.max_health + equipment.equipment_max_health + health_lvl_mod + equipment.magic2_max_health
+		max_stamina = stats.max_stamina + equipment.equipment_max_stamina + stamina_lvl_mod + equipment.magic2_max_stamina
+		set_spellStat_magic2()
 
 func set_reg_stats():
 	health_reg = stats.health_reg + equipment.equipment_regeneration_health
@@ -338,6 +366,41 @@ func magic2_mana_drain():
 			state = MOVE
 	if mana <= 0:
 		self.mana = 0
+
+func set_spellTimer_magic1():
+	spellTimer_magic1.wait_time = equipment.magic1_spellTime
+	spellTimer_magic1.start()
+	spellUI_magic1.visible = true
+	spellUI_magic1.max_value = equipment.magic1_spellTime
+
+func set_spellTimer_magic2():
+	spellTimer_magic2.wait_time = equipment.magic2_spellTime
+	spellTimer_magic2.start()
+	spellUI_magic2.visible = true
+	spellUI_magic2.max_value = equipment.magic2_spellTime
+
+func _on_SpellTimer_magic1_timeout():
+	spellUI_magic1.visible = false
+	spellTimer_magic1.stop()
+
+func _on_SpellTimer_magic2_timeout():
+	spellUI_magic2.visible = false
+	spellTimer_magic2.stop()
+
+func set_spellStat_magic1():
+	if spellTimer_magic1.time_left >= equipment.magic1_spellTime - 0.1:
+		if equipment.magic1_max_health != 0:
+			health = max_health
+		if equipment.magic1_max_stamina != 0:
+			stamina = max_stamina
+
+func set_spellStat_magic2():
+	if spellTimer_magic2.time_left >= equipment.magic2_spellTime - 0.1:
+		if equipment.magic2_max_health != 0:
+			health = max_health
+		if equipment.magic2_max_stamina != 0:
+			stamina = max_stamina
+
 ## Level System
 func add_xp(value):
 	xp += value
