@@ -708,7 +708,7 @@ position = Vector2( 42, 40 )
 position = Vector2( 118, -26 )
 size = 15
 inventory_name = "Silly Chest"
-items = [ "sword_iron", "ring_diamond", "ring_drain", "tome_Touch_fire", "potion_health", "potion_health", "potion_health", "tome_AoE_earth", "tome_Self_dark" ]
+items = [ "sword_iron", "ring_diamond", "ring_drain", "tome_R_damage_Touch", "potion_health", "potion_health", "potion_health", "tome_G_damage_AoE", "tome_B_health_Self" ]
 
 [node name="chest_2" parent="YSort/Containers" instance=ExtResource( 28 )]
 position = Vector2( 27, 353 )
@@ -720,7 +720,7 @@ items = [ "potion_health", "potion_health", "shield_tall", "sword_iron" ]
 position = Vector2( 87, 224 )
 size = 8
 inventory_name = "Potion Chest"
-items = [ "potion_health", "potion_health", "potion_mana", "potion_mana", "potion_stamina", "potion_stamina", "tome_Self_yellow" ]
+items = [ "potion_health", "potion_health", "potion_mana", "potion_mana", "potion_stamina", "potion_stamina", "tome_Y_health_Self" ]
 
 [node name="Interactables" type="YSort" parent="YSort"]
 
@@ -730,11 +730,15 @@ item_id = "sword_iron"
 
 [node name="floor_item2" parent="YSort/Interactables" instance=ExtResource( 29 )]
 position = Vector2( 259, 232 )
-item_id = "tome_Touch_fire"
+item_id = "tome_R_damage_Touch"
 
 [node name="floor_item3" parent="YSort/Interactables" instance=ExtResource( 29 )]
 position = Vector2( 69, 189 )
 item_id = "potion_health"
+
+[node name="floor_item4" parent="YSort/Interactables" instance=ExtResource( 29 )]
+position = Vector2( 92, 352 )
+item_id = "tome_Y_speed_Self"
 
 [node name="Grass" type="YSort" parent="YSort"]
 

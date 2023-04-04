@@ -17,10 +17,11 @@ onready var items = {
 	"shield_tall" : preload("res://Items/Items/shield_tall.tscn"),
 	
 	#Books
-	"tome_Touch_fire" : preload("res://Items/Items/tome_fire_Touch.tscn"),
-	"tome_AoE_earth" : preload("res://Items/Items/tome_earth_AoE.tscn"),
-	"tome_Self_dark" : preload("res://Items/Items/tome_dark_Self.tscn"),
-	"tome_Self_yellow" : preload("res://Items/Items/tome_yellow_Self.tscn")
+	"tome_B_health_Self" : preload("res://Items/Items/tome_B_health_Self.tscn"),
+	"tome_G_damage_AoE" : preload("res://Items/Items/tome_G_damage_AoE.tscn"),
+	"tome_R_damage_Touch" : preload("res://Items/Items/tome_R_damage_Touch.tscn"),
+	"tome_Y_health_Self" : preload("res://Items/Items/tome_Y_health_Self.tscn"),
+	"tome_Y_speed_Self" : preload("res://Items/Items/tome_Y_speed_Self.tscn")
 }
 
 onready var placeholders = {

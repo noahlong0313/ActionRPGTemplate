@@ -1148,6 +1148,7 @@ blend_point_3/node = SubResource( 98 )
 blend_point_3/pos = Vector2( 0, -1.1 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id=64]
 animation = "Magic_TOUCH_Left"
@@ -1336,7 +1337,7 @@ parameters/playback = SubResource( 15 )
 parameters/Attack/blend_position = Vector2( 0, -0.0190752 )
 parameters/Idle/blend_position = Vector2( 0, 1 )
 parameters/Magic_AoE/blend_position = Vector2( 0.00345421, 0.017341 )
-parameters/Magic_SELF/blend_position = Vector2( 0, 0 )
+parameters/Magic_SELF/blend_position = Vector2( -0.170608, -0.256034 )
 parameters/Magic_TOUCH/blend_position = Vector2( -0.0310881, 0.271978 )
 parameters/Roll/blend_position = Vector2( 0, 1 )
 parameters/Run/blend_position = Vector2( 0, 1 )

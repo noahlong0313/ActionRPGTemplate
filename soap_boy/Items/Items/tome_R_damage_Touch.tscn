@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Items/Item_Equipment.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/PixelFont_SM.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Items/Sprites/tome_fire.png" type="Texture" id=3]
+[ext_resource path="res://Items/Sprites/tome_fire.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/PixelFont_SM.tres" type="DynamicFont" id=3]
 
 [node name="Item" type="TextureRect"]
 anchor_right = 1.0
@@ -10,10 +10,10 @@ anchor_bottom = 1.0
 margin_right = -308.0
 margin_bottom = -168.0
 mouse_filter = 2
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 script = ExtResource( 1 )
 EQUIPMENT = true
-id = "tome_Touch_fire"
+id = "tome_R_damage_Touch"
 item_name = "Tome of Pyromancy"
 gold_value = 150
 item_desc = "Teaches the arcane arts of pyromancy."
@@ -30,6 +30,6 @@ margin_left = 3.0
 margin_top = 7.0
 margin_right = 13.0
 margin_bottom = 13.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "1"
 align = 2

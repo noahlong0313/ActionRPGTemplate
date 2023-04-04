@@ -166,6 +166,7 @@ func _process(delta):
 	spellUI_magic2.value = spellTimer_magic2.time_left
 	spellUI_magic1.value = spellTimer_magic1.time_left
 
+
 func _input(event):
 	if event.is_action_pressed("interact") and current_interactable:
 		current_interactable.interact()
@@ -227,6 +228,7 @@ func move_state(delta):
 				state = MAGIC_SELF
 				if equipment.magic1_timed == true:
 					set_spellTimer_magic1()
+					set_selfSpell_magic1()
 				else:
 					equipment.self_cast()
 		else:
@@ -244,6 +246,7 @@ func move_state(delta):
 				state = MAGIC_SELF
 				if equipment.magic2_timed == true:
 					set_spellTimer_magic2()
+					set_selfSpell_magic2()
 				else:
 					equipment.self_cast()
 		else:
@@ -305,9 +308,16 @@ func set_max_stats():
 		set_spellStat_magic2()
 
 func set_reg_stats():
-	health_reg = stats.health_reg + equipment.equipment_regeneration_health
 	mana_reg = stats.mana_reg + equipment.equipment_regeneration_mana
-	stamina_reg = stats.stamina_reg + equipment.equipment_regeneration_stamina
+	if spellTimer_magic1.time_left <= 0.0 and spellTimer_magic2.time_left <= 0.0:
+		health_reg = stats.health_reg + equipment.equipment_regeneration_health
+		stamina_reg = stats.stamina_reg + equipment.equipment_regeneration_stamina
+	elif spellTimer_magic1.time_left > 0.0:
+		health_reg = stats.health_reg + equipment.equipment_regeneration_health + equipment.magic1_regeneration_health
+		stamina_reg = stats.stamina_reg + equipment.equipment_regeneration_stamina + equipment.magic1_regeneration_stamina
+	elif spellTimer_magic2.time_left > 0.0:
+		health_reg = stats.health_reg + equipment.equipment_regeneration_health + equipment.magic2_regeneration_health
+		stamina_reg = stats.stamina_reg + equipment.equipment_regeneration_stamina + equipment.magic2_regeneration_stamina
 	
 	if health_reg <= 0:
 		health_reg = 0
@@ -315,6 +325,15 @@ func set_reg_stats():
 		mana_reg = 0
 	if stamina_reg <= 0:
 		stamina_reg = 0
+
+func set_selfSpell_magic1():
+	MAX_SPEED = stats.move_speed + equipment.magic1_speed
+
+func set_selfSpell_magic2():
+	MAX_SPEED = stats.move_speed + equipment.magic2_speed
+
+func reset_stats():
+	MAX_SPEED = stats.move_speed
 
 func _on_level_up():
 	health = max_health
@@ -382,10 +401,12 @@ func set_spellTimer_magic2():
 func _on_SpellTimer_magic1_timeout():
 	spellUI_magic1.visible = false
 	spellTimer_magic1.stop()
+	reset_stats()
 
 func _on_SpellTimer_magic2_timeout():
 	spellUI_magic2.visible = false
 	spellTimer_magic2.stop()
+	reset_stats()
 
 func set_spellStat_magic1():
 	if spellTimer_magic1.time_left >= equipment.magic1_spellTime - 0.1:

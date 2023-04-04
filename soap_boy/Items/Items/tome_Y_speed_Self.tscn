@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Items/Item_Equipment.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/PixelFont_SM.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Items/Sprites/tome_earth.png" type="Texture" id=3]
+[ext_resource path="res://Items/Sprites/tome_yellow.png" type="Texture" id=3]
 
 [node name="Item" type="TextureRect"]
 anchor_right = 1.0
@@ -13,17 +13,19 @@ mouse_filter = 2
 texture = ExtResource( 3 )
 script = ExtResource( 1 )
 EQUIPMENT = true
-id = "tome_AoE_earth"
-item_name = "Earth Rumble"
+id = "tome_Y_speed_Self"
+item_name = "Tome of Speed"
 gold_value = 600
-item_desc = "Powerful area of effect earth magic."
+item_desc = "Gotta go fast."
 equipment_type = 4
 quantity = 1
 stack_size = 1
 MAGIC = true
-magic_type = 3
-damage = 12
+magic_type = 1
 mana_drain = 2.0
+player_Speed_Change = 50
+TIMED_SPELL = true
+time = 5.0
 
 [node name="quantity_label" type="Label" parent="."]
 visible = false
