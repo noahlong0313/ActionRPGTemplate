@@ -660,7 +660,7 @@ jsonRes = ExtResource( 21 )
 [node name="Bushes" type="YSort" parent="YSort"]
 
 [node name="Bush" parent="YSort/Bushes" instance=ExtResource( 1 )]
-position = Vector2( 42, 76 )
+position = Vector2( 153, 29 )
 
 [node name="Bush2" parent="YSort/Bushes" instance=ExtResource( 1 )]
 position = Vector2( 305, 76 )
@@ -705,7 +705,7 @@ position = Vector2( 25, 296 )
 position = Vector2( 42, 40 )
 
 [node name="chest_1" parent="YSort/Containers" instance=ExtResource( 28 )]
-position = Vector2( 118, -26 )
+position = Vector2( 1, -2 )
 size = 15
 inventory_name = "Silly Chest"
 items = [ "sword_iron", "ring_diamond", "ring_drain", "tome_R_damage_Touch", "potion_health", "potion_health", "potion_health", "tome_G_damage_AoE", "tome_B_health_Self" ]
@@ -725,8 +725,12 @@ items = [ "potion_health", "potion_health", "potion_mana", "potion_mana", "potio
 [node name="Interactables" type="YSort" parent="YSort"]
 
 [node name="floor_item" parent="YSort/Interactables" instance=ExtResource( 29 )]
-position = Vector2( 121, 96 )
+position = Vector2( 103, 43 )
 item_id = "sword_iron"
+
+[node name="floor_item5" parent="YSort/Interactables" instance=ExtResource( 29 )]
+position = Vector2( 75, 43 )
+item_id = "tome_R_damage_Ranged"
 
 [node name="floor_item2" parent="YSort/Interactables" instance=ExtResource( 29 )]
 position = Vector2( 259, 232 )
@@ -970,7 +974,7 @@ position = Vector2( 41, 288 )
 position = Vector2( 57, 144 )
 
 [node name="bat" parent="YSort/Enemies" instance=ExtResource( 7 )]
-position = Vector2( -46, -36 )
+position = Vector2( 182, 107 )
 stats = ExtResource( 19 )
 
 [node name="bat2" parent="YSort/Enemies" instance=ExtResource( 7 )]

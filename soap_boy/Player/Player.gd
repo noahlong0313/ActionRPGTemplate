@@ -166,7 +166,6 @@ func _process(delta):
 	spellUI_magic2.value = spellTimer_magic2.time_left
 	spellUI_magic1.value = spellTimer_magic1.time_left
 
-
 func _input(event):
 	if event.is_action_pressed("interact") and current_interactable:
 		current_interactable.interact()
@@ -231,6 +230,9 @@ func move_state(delta):
 					set_selfSpell_magic1()
 				else:
 					equipment.self_cast()
+			if equipment.magic1_type == GameEnums.MAGIC_TYPE.RANGED:
+				state = MAGIC_RANGED
+				instance_entity()
 		else:
 			state = MOVE
 	
@@ -249,6 +251,9 @@ func move_state(delta):
 					set_selfSpell_magic2()
 				else:
 					equipment.self_cast()
+			if equipment.magic2_type == GameEnums.MAGIC_TYPE.RANGED:
+				state = MAGIC_RANGED
+				instance_entity()
 		else:
 			state = MOVE
 
@@ -266,6 +271,7 @@ func attack_state(delta):
 	player_damage = equipment.weapon_damage
 	velocity = Vector2.ZERO
 	animationState.travel("Attack")
+#Attack Finished
 func attack_animation_finished():
 	state = MOVE
 
@@ -279,7 +285,8 @@ func magic_state_self(delta):
 	animationState.travel("Magic_SELF")
 
 func magic_state_ranged(delta):
-	pass
+	velocity = velocity / CAST_SPEED
+	animationState.travel("Magic_SELF")
 
 func magic_state_aoe(delta):
 	velocity = velocity / CAST_SPEED
@@ -421,6 +428,13 @@ func set_spellStat_magic2():
 			health = max_health
 		if equipment.magic2_max_stamina != 0:
 			stamina = max_stamina
+
+func instance_entity():
+	var fireball = GameState.ent.fireball.instance()
+	get_parent().add_child(fireball)
+	fireball.global_position = global_position
+	
+	fireball.direction = roll_vector
 
 ## Level System
 func add_xp(value):

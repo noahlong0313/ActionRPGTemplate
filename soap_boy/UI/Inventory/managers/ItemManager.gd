@@ -19,6 +19,7 @@ onready var items = {
 	#Books
 	"tome_B_health_Self" : preload("res://Items/Items/tome_B_health_Self.tscn"),
 	"tome_G_damage_AoE" : preload("res://Items/Items/tome_G_damage_AoE.tscn"),
+	"tome_R_damage_Ranged" : preload("res://Items/Items/tome_R_damage_Ranged.tscn"),
 	"tome_R_damage_Touch" : preload("res://Items/Items/tome_R_damage_Touch.tscn"),
 	"tome_Y_health_Self" : preload("res://Items/Items/tome_Y_health_Self.tscn"),
 	"tome_Y_speed_Self" : preload("res://Items/Items/tome_Y_speed_Self.tscn")

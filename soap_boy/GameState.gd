@@ -5,5 +5,8 @@ export(Resource) var player_race
 var player_gold = 0
 
 
-func _ready():
-	pass
+
+#Entity Spawner
+var ent = {
+	"fireball": preload("res://Entities/Fireball/Fireball.tscn")
+}
