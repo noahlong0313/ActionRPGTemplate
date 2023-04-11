@@ -4,9 +4,13 @@ var speed = 80
 var direction : Vector2
 var knockback_vector : Vector2
 
+var player
+
 onready var sprite = $AnimatedSprite
 
 func _ready():
+	player = get_tree().root.get_node("/root/OverWorld/YSort/Player")
+	sprite.frames = player.sprite_ranged
 	sprite.play("fly")
 
 func _process(delta):

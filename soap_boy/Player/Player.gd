@@ -55,6 +55,8 @@ var player_damage
 var stamina_drain = 0
 var mana_drain = 0 
 
+var sprite_ranged
+
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
@@ -68,7 +70,6 @@ onready var spellTimer_magic1 = $SpellTimer_magic1
 onready var spellTimer_magic2 = $SpellTimer_magic2
 onready var spellUI_magic1 = $"../../CanvasLayer/spellTime_UI/spellTime_magic1_UI"
 onready var spellUI_magic2 = $"../../CanvasLayer/spellTime_UI/spellTime_magic2_UI"
-
 
 var current_interactable
 var item : Item
@@ -231,6 +232,7 @@ func move_state(delta):
 				else:
 					equipment.self_cast()
 			if equipment.magic1_type == GameEnums.MAGIC_TYPE.RANGED:
+				sprite_ranged = equipment.magic1_sprite_ranged
 				state = MAGIC_RANGED
 				instance_entity()
 		else:
@@ -252,6 +254,7 @@ func move_state(delta):
 				else:
 					equipment.self_cast()
 			if equipment.magic2_type == GameEnums.MAGIC_TYPE.RANGED:
+				sprite_ranged = equipment.magic2_sprite_ranged
 				state = MAGIC_RANGED
 				instance_entity()
 		else:

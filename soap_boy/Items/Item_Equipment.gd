@@ -6,6 +6,8 @@ export(bool) var MAGIC
 
 export(GameEnums.MAGIC_TYPE) var magic_type
 
+export(SpriteFrames) var ranged_sprite
+
 # Weapons / Attacks
 export(int) var damage = 0
 export(float) var stamina_drain = 0 

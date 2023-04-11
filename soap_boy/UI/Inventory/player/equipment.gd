@@ -84,6 +84,9 @@ var magic2_type = null
 var magic1_timed = false
 var magic2_timed = false
 
+var magic1_sprite_ranged
+var magic2_sprite_ranged
+
 var item : Item
 var player
 
@@ -165,6 +168,7 @@ func get_magic1_stat():
 		magic1_self_stamina = slots[2].item.self_stamina
 		magic1_spellTime = slots[2].item.time
 		magic1_timed = slots[2].item.TIMED_SPELL
+		magic1_sprite_ranged = slots[2].item.ranged_sprite
 	
 	else:
 		magic1_type = null
@@ -182,6 +186,7 @@ func get_magic1_stat():
 		magic1_self_health = 0
 		magic1_self_stamina = 0
 		magic1_spellTime = 0.0
+		magic1_sprite_ranged = null
 
 func get_magic2_stat():
 	if slots[3].item:
@@ -200,6 +205,7 @@ func get_magic2_stat():
 		magic2_self_stamina = slots[3].item.self_stamina
 		magic2_spellTime = slots[3].item.time
 		magic2_timed = slots[3].item.TIMED_SPELL
+		magic2_sprite_ranged = slots[3].item.ranged_sprite
 	
 	else:
 		magic2_type = null
@@ -217,6 +223,7 @@ func get_magic2_stat():
 		magic2_self_health = 0
 		magic2_self_stamina = 0
 		magic2_spellTime = 0.0
+		magic2_sprite_ranged = null
 
 func get_equipment_stat():
 	equipment_max_health = weapon_max_health + accessory_max_health
