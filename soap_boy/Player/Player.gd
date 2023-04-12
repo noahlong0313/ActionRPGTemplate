@@ -55,6 +55,8 @@ var player_damage
 var stamina_drain = 0
 var mana_drain = 0 
 
+var player_fx
+var sprite_player_fx
 var sprite_ranged
 
 onready var animationPlayer = $AnimationPlayer
@@ -221,10 +223,16 @@ func move_state(delta):
 			player_damage = equipment.magic1_damage
 			magic1_mana_drain()
 			if equipment.magic1_type == GameEnums.MAGIC_TYPE.TOUCH:
+				magic1_set_FX()
+				player_fx.play_touch()
 				state = MAGIC_TOUCH
 			if equipment.magic1_type == GameEnums.MAGIC_TYPE.AOE:
+				magic1_set_FX()
+				player_fx.play_aoe()
 				state = MAGIC_AOE
 			if equipment.magic1_type == GameEnums.MAGIC_TYPE.SELF:
+				magic1_set_FX()
+				player_fx.play_self()
 				state = MAGIC_SELF
 				if equipment.magic1_timed == true:
 					set_spellTimer_magic1()
@@ -243,10 +251,16 @@ func move_state(delta):
 			player_damage = equipment.magic2_damage
 			magic2_mana_drain()
 			if equipment.magic2_type == GameEnums.MAGIC_TYPE.TOUCH:
+				magic2_set_FX()
+				player_fx.play_touch()
 				state = MAGIC_TOUCH
 			if equipment.magic2_type == GameEnums.MAGIC_TYPE.AOE:
+				magic2_set_FX()
+				player_fx.play_aoe()
 				state = MAGIC_AOE
 			if equipment.magic2_type == GameEnums.MAGIC_TYPE.SELF:
+				magic2_set_FX()
+				player_fx.play_self()
 				state = MAGIC_SELF
 				if equipment.magic2_timed == true:
 					set_spellTimer_magic2()
@@ -432,12 +446,25 @@ func set_spellStat_magic2():
 		if equipment.magic2_max_stamina != 0:
 			stamina = max_stamina
 
+func magic1_set_FX():
+	sprite_player_fx = equipment.magic1_sprite_player_fx
+	instance_FX()
+
+func magic2_set_FX():
+	sprite_player_fx = equipment.magic2_sprite_player_fx
+	instance_FX()
+
 func instance_entity():
 	var fireball = GameState.ent.fireball.instance()
 	get_parent().add_child(fireball)
 	fireball.global_position = global_position
 	
 	fireball.direction = roll_vector
+
+func instance_FX():
+	player_fx = GameState.ent.player_fx.instance()
+	get_parent().add_child(player_fx)
+	player_fx.global_position = global_position
 
 ## Level System
 func add_xp(value):

@@ -7,6 +7,7 @@ export(bool) var MAGIC
 export(GameEnums.MAGIC_TYPE) var magic_type
 
 export(SpriteFrames) var ranged_sprite
+export(SpriteFrames) var player_FX_sprite
 
 # Weapons / Attacks
 export(int) var damage = 0

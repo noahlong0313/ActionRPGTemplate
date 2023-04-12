@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Entities/Player FX/Player_Spell_Energy.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Entities/Player FX/PlayerFX.gd" type="Script" id=2]
+
+[node name="PlayerFX" type="AnimatedSprite"]
+position = Vector2( -134, -58 )
+frames = ExtResource( 1 )
+animation = "Self_Right"
+offset = Vector2( 0, -10 )
+script = ExtResource( 2 )
+
+[connection signal="animation_finished" from="." to="." method="_on_PlayerFX_animation_finished"]
