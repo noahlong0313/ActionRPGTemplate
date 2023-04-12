@@ -7,6 +7,9 @@ export(bool) var MAGIC
 export(GameEnums.MAGIC_TYPE) var magic_type
 
 export(SpriteFrames) var ranged_sprite
+
+export(int) var projectile_speed = 0
+
 export(SpriteFrames) var player_FX_sprite
 
 # Weapons / Attacks

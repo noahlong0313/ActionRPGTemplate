@@ -54,6 +54,7 @@ var equipment
 var player_damage
 var stamina_drain = 0
 var mana_drain = 0 
+var player_projectile_speed
 
 var player_fx
 var sprite_player_fx
@@ -221,6 +222,7 @@ func move_state(delta):
 	if Input.is_action_just_pressed("spell_slot_1"):
 		if equipment.magic1_mana_drain != 0 and mana >= equipment.magic1_mana_drain:
 			player_damage = equipment.magic1_damage
+			player_projectile_speed = equipment.magic1_projectile_speed
 			magic1_mana_drain()
 			if equipment.magic1_type == GameEnums.MAGIC_TYPE.TOUCH:
 				magic1_set_FX()
@@ -249,6 +251,7 @@ func move_state(delta):
 	if Input.is_action_just_pressed("spell_slot_2"):
 		if equipment.magic2_mana_drain != 0 and mana >= equipment.magic2_mana_drain:
 			player_damage = equipment.magic2_damage
+			player_projectile_speed = equipment.magic2_projectile_speed
 			magic2_mana_drain()
 			if equipment.magic2_type == GameEnums.MAGIC_TYPE.TOUCH:
 				magic2_set_FX()
@@ -459,6 +462,7 @@ func instance_entity():
 	get_parent().add_child(fireball)
 	fireball.global_position = global_position
 	
+	fireball.speed = player_projectile_speed
 	fireball.direction = roll_vector
 
 func instance_FX():

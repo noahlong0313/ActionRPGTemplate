@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 80
+var speed = 0
 var direction : Vector2
 var knockback_vector : Vector2
 
