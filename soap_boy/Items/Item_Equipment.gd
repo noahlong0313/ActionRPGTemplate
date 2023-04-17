@@ -2,6 +2,8 @@ extends Item
 
 class_name Item_Equipment
 
+export(GameEnums.WEAPON_TYPE) var weapon_type
+
 export(bool) var MAGIC
 
 export(GameEnums.MAGIC_TYPE) var magic_type

@@ -14,3 +14,8 @@ enum MAGIC_TYPE {
 	RANGED,
 	AOE
 }
+
+enum WEAPON_TYPE {
+	MELEE,
+	RANGED
+}

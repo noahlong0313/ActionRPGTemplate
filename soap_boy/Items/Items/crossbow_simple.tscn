@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Items/Item_Equipment.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/PixelFont_SM.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Entities/Bolt/Bolt_Simple.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://Items/Sprites/crossbow_simple.png" type="Texture" id=4]
+
+[node name="Item" type="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -308.0
+margin_bottom = -168.0
+mouse_filter = 2
+texture = ExtResource( 4 )
+script = ExtResource( 1 )
+EQUIPMENT = true
+id = "crossbow_simple"
+item_name = "Simple Crossbow"
+gold_value = 300
+item_desc = "Technologically incredible, a powerful weapon used by skillful archers."
+equipment_type = 2
+quantity = 1
+stack_size = 1
+weapon_type = 1
+ranged_sprite = ExtResource( 3 )
+projectile_speed = 220
+damage = 3
+stamina_drain = 2.0
+
+[node name="quantity_label" type="Label" parent="."]
+visible = false
+margin_left = 3.0
+margin_top = 7.0
+margin_right = 13.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 2 )
+text = "1"
+align = 2

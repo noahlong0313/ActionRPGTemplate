@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Items/Item_Equipment.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/PixelFont_SM.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Items/Sprites/bow_simple.png" type="Texture" id=3]
+[ext_resource path="res://Entities/Arrow/Arrow_Simple.tres" type="SpriteFrames" id=4]
+
+[node name="Item" type="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -308.0
+margin_bottom = -168.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+script = ExtResource( 1 )
+EQUIPMENT = true
+id = "bow_simple"
+item_name = "Simple Bow"
+gold_value = 75
+item_desc = "Well crafted and reliable."
+equipment_type = 2
+quantity = 1
+stack_size = 1
+weapon_type = 1
+ranged_sprite = ExtResource( 4 )
+projectile_speed = 190
+damage = 1
+stamina_drain = 1.0
+
+[node name="quantity_label" type="Label" parent="."]
+visible = false
+margin_left = 3.0
+margin_top = 7.0
+margin_right = 13.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 2 )
+text = "1"
+align = 2

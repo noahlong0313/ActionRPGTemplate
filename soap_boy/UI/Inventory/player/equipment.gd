@@ -93,6 +93,10 @@ var magic2_sprite_ranged
 var magic1_sprite_player_fx
 var magic2_sprite_player_fx
 
+var weapon_type = null
+var weapon_sprite_ranged
+var weapon_projectile_speed
+
 var item : Item
 var player
 
@@ -119,6 +123,9 @@ func get_weapon_stat():
 		weapon_max_health = slots[1].item.max_Health_Change
 		weapon_max_mana = slots[1].item.max_Mana_Change
 		weapon_max_stamina = slots[1].item.max_Stamina_Change
+		weapon_type = slots[1].item.weapon_type
+		weapon_sprite_ranged = slots[1].item.ranged_sprite
+		weapon_projectile_speed = slots[1].item.projectile_speed
 	
 	else:
 		weapon_damage = 0
@@ -131,6 +138,9 @@ func get_weapon_stat():
 		weapon_max_health = 0
 		weapon_max_mana = 0
 		weapon_max_stamina = 0
+		weapon_type = null
+		weapon_sprite_ranged = null
+		weapon_projectile_speed = 0
 
 func get_accessory_stat():
 	if slots[0].item:

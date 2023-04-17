@@ -24,7 +24,7 @@ stack_size = 1
 MAGIC = true
 magic_type = 2
 ranged_sprite = ExtResource( 4 )
-projectile_speed = 300
+projectile_speed = 200
 damage = 2
 mana_drain = 3.0
 

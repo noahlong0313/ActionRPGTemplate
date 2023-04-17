@@ -16,7 +16,8 @@ var stats : Resource
 enum {
 	MOVE,
 	ROLL,
-	ATTACK,
+	ATTACK_MELEE,
+	ATTACK_RANGED,
 	MAGIC_TOUCH,
 	MAGIC_SELF,
 	MAGIC_RANGED,
@@ -114,8 +115,11 @@ func _physics_process(delta):
 		ROLL:
 			roll_state(delta)
 		
-		ATTACK:
-			attack_state(delta)
+		ATTACK_MELEE:
+			attack_melee_state(delta)
+		
+		ATTACK_RANGED:
+			attack_ranged_state(delta)
 		
 		MAGIC_TOUCH:
 			magic_state_touch(delta)
@@ -216,8 +220,16 @@ func move_state(delta):
 		stamina_drain_roll()
 	
 	if Input.is_action_just_pressed("attack"):
-		state = ATTACK
-		stamina_drain_attack()
+		if equipment.weapon_stamina_drain != 0 and stamina >= equipment.weapon_stamina_drain:
+			player_damage = equipment.weapon_damage
+			player_projectile_speed = equipment.weapon_projectile_speed
+			stamina_drain_attack()
+			if equipment.weapon_type == GameEnums.WEAPON_TYPE.RANGED:
+				sprite_ranged = equipment.weapon_sprite_ranged
+				state = ATTACK_RANGED
+				instance_entity()
+			if equipment.weapon_type == GameEnums.WEAPON_TYPE.MELEE:
+				state = ATTACK_MELEE
 	
 	if Input.is_action_just_pressed("spell_slot_1"):
 		if equipment.magic1_mana_drain != 0 and mana >= equipment.magic1_mana_drain:
@@ -287,10 +299,14 @@ func roll_animation_finished():
 	velocity = velocity / ROLL_END_SPEED
 	state = MOVE
 # Attack
-func attack_state(delta):
+func attack_melee_state(delta):
 	player_damage = equipment.weapon_damage
 	velocity = Vector2.ZERO
 	animationState.travel("Attack")
+func attack_ranged_state(delta):
+	player_damage = equipment.weapon_damage
+	velocity = Vector2.ZERO
+	animationState.travel("Magic_SELF")
 #Attack Finished
 func attack_animation_finished():
 	state = MOVE

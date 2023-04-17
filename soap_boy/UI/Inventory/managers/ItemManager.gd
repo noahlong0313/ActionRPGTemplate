@@ -12,6 +12,8 @@ onready var items = {
 	
 	#Weapons
 	"sword_iron" : preload("res://Items/Items/sword_iron.tscn"),
+	"bow_simple" : preload("res://Items/Items/bow_simple.tscn"),
+	"crossbow_simple" : preload("res://Items/Items/crossbow_simple.tscn"),
 	
 	#Armor
 	"shield_tall" : preload("res://Items/Items/shield_tall.tscn"),

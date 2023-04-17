@@ -708,7 +708,13 @@ position = Vector2( 42, 40 )
 position = Vector2( 1, -2 )
 size = 15
 inventory_name = "Silly Chest"
-items = [ "sword_iron", "ring_diamond", "ring_drain", "tome_R_damage_Touch", "potion_health", "potion_health", "potion_health", "tome_G_damage_AoE", "tome_B_health_Self" ]
+items = [ "ring_diamond", "ring_drain", "tome_R_damage_Touch", "potion_health", "potion_health", "potion_health", "tome_G_damage_AoE", "tome_B_health_Self" ]
+
+[node name="chest_4" parent="YSort/Containers" instance=ExtResource( 28 )]
+position = Vector2( -22, 29 )
+size = 15
+inventory_name = "Weapon"
+items = [ "sword_iron", "bow_simple", "crossbow_simple" ]
 
 [node name="chest_2" parent="YSort/Containers" instance=ExtResource( 28 )]
 position = Vector2( 27, 353 )
